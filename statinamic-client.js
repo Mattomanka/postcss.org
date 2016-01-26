@@ -63,7 +63,7 @@
 
 	var _utils = __webpack_require__(228);
 
-	__webpack_require__(332);
+	__webpack_require__(336);
 
 	var routes = _utils.RouteHandler;
 
@@ -25675,7 +25675,9 @@
 			"static": "babel-node scripts/build --static --production",
 			"pretest": "npm run lint",
 			"test": "npm run static",
-			"posttest": "echo 'postcss.org' > dist/CNAME && touch dist/.nojekyll"
+			"posttest": "echo 'postcss.org' > dist/CNAME && touch dist/.nojekyll",
+			"styleguide-server": "styleguidist server --config style-guide/styleguide.config.js ",
+			"styleguide-build": "styleguidist build"
 		},
 		"babel": {
 			"stage": 0
@@ -25710,11 +25712,12 @@
 			"markdown-it-toc-and-anchor": "^1.0.1",
 			"postcss-cssnext": "^2.4.0",
 			"postcss-loader": "^0.7.0",
-			"react": "^0.14.5",
-			"react-dom": "^0.14.5",
+			"react": "^0.14.6",
+			"react-dom": "^0.14.6",
 			"react-helmet": "^2.2.0",
 			"react-redux": "^2.1.2",
 			"react-router": "^1.0.3",
+			"react-styleguidist": "^1.3.2",
 			"react-transform-catch-errors": "^1.0.1",
 			"react-transform-hmr": "^1.0.1",
 			"redbox-react": "^1.2.0",
@@ -25778,7 +25781,7 @@
 	 * Route Handler
 	 */
 
-	var _Wrapper = __webpack_require__(320);
+	var _Wrapper = __webpack_require__(326);
 
 	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 
@@ -25796,7 +25799,7 @@
 
 	// initialState
 	_extends({}, typeof window !== "undefined" && window.__INITIAL_STATE__, (true) && {
-	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(331))
+	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(335))
 	}, {
 
 	  pageComponents: _layouts2["default"]
@@ -26640,9 +26643,14 @@
 
 	var _layoutsPageError2 = _interopRequireDefault(_layoutsPageError);
 
+	var _layoutsHomePage = __webpack_require__(320);
+
+	var _layoutsHomePage2 = _interopRequireDefault(_layoutsHomePage);
+
 	var layouts = {
 	  Page: _layoutsPage2["default"],
-	  PageError: _layoutsPageError2["default"]
+	  PageError: _layoutsPageError2["default"],
+	  HomePage: _layoutsHomePage2["default"]
 	};
 
 	exports["default"] = layouts;
@@ -29125,47 +29133,59 @@
 
 	var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
-	var _Header = __webpack_require__(321);
+	var _invariant = __webpack_require__(164);
 
-	var _Header2 = _interopRequireDefault(_Header);
+	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _Footer = __webpack_require__(326);
+	var _Hero = __webpack_require__(321);
 
-	var _Footer2 = _interopRequireDefault(_Footer);
+	var _Hero2 = _interopRequireDefault(_Hero);
 
-	var _indexCss = __webpack_require__(329);
+	var HomePage = (function (_Component) {
+	  _inherits(HomePage, _Component);
 
-	var _indexCss2 = _interopRequireDefault(_indexCss);
+	  function HomePage() {
+	    _classCallCheck(this, HomePage);
 
-	var Wrapper = (function (_Component) {
-	  _inherits(Wrapper, _Component);
-
-	  function Wrapper() {
-	    _classCallCheck(this, Wrapper);
-
-	    _get(Object.getPrototypeOf(Wrapper.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(HomePage.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(Wrapper, [{
+	  _createClass(HomePage, [{
 	    key: "render",
 	    value: function render() {
 	      var pkg = this.context.metadata.pkg;
+	      var _props = this.props;
+	      var head = _props.head;
+	      var body = _props.body;
 
+	      (0, _invariant2["default"])(typeof head.title === "string", "Your page needs a title");
+
+	      var meta = [{ property: "og:title", content: head.title }, { property: "og:type", content: "article" }, { property: "og:url", content: this.props.__url },
+	      // { property: "og:description", content: pageDescription(body) },
+	      { name: "twitter:card", content: "summary" }, { name: "twitter:title", content: head.title }, { name: "twitter:creator", content: "@" + pkg.twitter }];
+
+	      // { name: "twitter:description", content: pageDescription(body) },
 	      return _react2["default"].createElement(
 	        "div",
-	        { className: _indexCss2["default"].wrapper },
+	        null,
 	        _react2["default"].createElement(_reactHelmet2["default"], {
-	          meta: [{ property: "og:site_name", content: pkg.name }, { name: "twitter:site", content: "@" + pkg.twitter }]
+	          title: head.title,
+	          meta: meta
 	        }),
-	        _react2["default"].createElement(_Header2["default"], null),
-	        this.props.children,
-	        _react2["default"].createElement(_Footer2["default"], null)
+	        _react2["default"].createElement(_Hero2["default"], null),
+	        body && _react2["default"].createElement("div", {
+	          dangerouslySetInnerHTML: { __html: body }
+	        }),
+	        this.props.children
 	      );
 	    }
 	  }], [{
 	    key: "propTypes",
 	    value: {
-	      children: _react.PropTypes.oneOfType([_react.PropTypes.array, _react.PropTypes.object])
+	      children: _react.PropTypes.oneOfType([_react.PropTypes.array, _react.PropTypes.object]),
+	      __url: _react.PropTypes.string.isRequired,
+	      head: _react.PropTypes.object.isRequired,
+	      body: _react.PropTypes.string.isRequired
 	    },
 	    enumerable: true
 	  }, {
@@ -29176,10 +29196,10 @@
 	    enumerable: true
 	  }]);
 
-	  return Wrapper;
+	  return HomePage;
 	})(_react.Component);
 
-	exports["default"] = Wrapper;
+	exports["default"] = HomePage;
 	module.exports = exports["default"];
 
 /***/ },
@@ -29206,83 +29226,39 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(160);
-
 	var _indexCss = __webpack_require__(322);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
-	var Header = (function (_Component) {
-	  _inherits(Header, _Component);
+	var Hero = (function (_Component) {
+	  _inherits(Hero, _Component);
 
-	  function Header() {
-	    _classCallCheck(this, Header);
+	  function Hero() {
+	    _classCallCheck(this, Hero);
 
-	    _get(Object.getPrototypeOf(Header.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(Hero.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(Header, [{
+	  _createClass(Hero, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2["default"].createElement(
-	        "nav",
-	        { className: _indexCss2["default"].nav },
+	        "section",
+	        { className: _indexCss2["default"].hero },
+	        _react2["default"].createElement("img", { alt: "PostCSS Logo" }),
 	        _react2["default"].createElement(
-	          _reactRouter.Link,
-	          {
-	            className: _indexCss2["default"].link,
-	            to: "/"
-	          },
-	          "Learn"
-	        ),
-	        _react2["default"].createElement(
-	          _reactRouter.Link,
-	          {
-	            className: _indexCss2["default"].link,
-	            to: "/"
-	          },
-	          "Get Started"
-	        ),
-	        _react2["default"].createElement(
-	          _reactRouter.Link,
-	          {
-	            className: _indexCss2["default"].link,
-	            to: "/"
-	          },
-	          "Documentation"
-	        ),
-	        _react2["default"].createElement(
-	          _reactRouter.Link,
-	          {
-	            className: _indexCss2["default"].link,
-	            to: "/"
-	          },
-	          "Plugins"
-	        ),
-	        _react2["default"].createElement(
-	          _reactRouter.Link,
-	          {
-	            className: _indexCss2["default"].link,
-	            to: "/"
-	          },
-	          "Blog"
-	        ),
-	        _react2["default"].createElement(
-	          _reactRouter.Link,
-	          {
-	            className: _indexCss2["default"].link,
-	            to: "/"
-	          },
-	          "Get involved"
+	          "button",
+	          null,
+	          "Github"
 	        )
 	      );
 	    }
 	  }]);
 
-	  return Header;
+	  return Hero;
 	})(_react.Component);
 
-	exports["default"] = Header;
+	exports["default"] = Hero;
 	module.exports = exports["default"];
 
 /***/ },
@@ -29290,7 +29266,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"nav":"web_modules-Header-index--nav--34d_e","link":"web_modules-Header-index--link--3o000"};
+	module.exports = {"hero":"web_modules-Hero-index--hero--2yLb_"};
 
 /***/ },
 /* 323 */,
@@ -29319,7 +29295,223 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _indexCss = __webpack_require__(327);
+	var _reactHelmet = __webpack_require__(242);
+
+	var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
+
+	var _Navbar = __webpack_require__(327);
+
+	var _Navbar2 = _interopRequireDefault(_Navbar);
+
+	var _Footer = __webpack_require__(330);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
+	var _indexCss = __webpack_require__(333);
+
+	var _indexCss2 = _interopRequireDefault(_indexCss);
+
+	var Wrapper = (function (_Component) {
+	  _inherits(Wrapper, _Component);
+
+	  function Wrapper() {
+	    _classCallCheck(this, Wrapper);
+
+	    _get(Object.getPrototypeOf(Wrapper.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Wrapper, [{
+	    key: "render",
+	    value: function render() {
+	      var pkg = this.context.metadata.pkg;
+
+	      return _react2["default"].createElement(
+	        "div",
+	        null,
+	        _react2["default"].createElement(_Navbar2["default"], null),
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].wrapper },
+	          _react2["default"].createElement(_reactHelmet2["default"], {
+	            meta: [{ property: "og:site_name", content: pkg.name }, { name: "twitter:site", content: "@" + pkg.twitter }]
+	          }),
+	          this.props.children,
+	          _react2["default"].createElement(_Footer2["default"], null)
+	        )
+	      );
+	    }
+	  }], [{
+	    key: "propTypes",
+	    value: {
+	      children: _react.PropTypes.oneOfType([_react.PropTypes.array, _react.PropTypes.object])
+	    },
+	    enumerable: true
+	  }, {
+	    key: "contextTypes",
+	    value: {
+	      metadata: _react.PropTypes.object.isRequired
+	    },
+	    enumerable: true
+	  }]);
+
+	  return Wrapper;
+	})(_react.Component);
+
+	exports["default"] = Wrapper;
+	module.exports = exports["default"];
+
+/***/ },
+/* 327 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(160);
+
+	var _indexCss = __webpack_require__(328);
+
+	var _indexCss2 = _interopRequireDefault(_indexCss);
+
+	var Navbar = (function (_Component) {
+	  _inherits(Navbar, _Component);
+
+	  function Navbar() {
+	    _classCallCheck(this, Navbar);
+
+	    _get(Object.getPrototypeOf(Navbar.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Navbar, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "nav",
+	        { className: _indexCss2["default"].nav },
+	        _react2["default"].createElement(
+	          "section",
+	          { className: _indexCss2["default"].left },
+	          _react2["default"].createElement(
+	            _reactRouter.Link,
+	            {
+	              className: _indexCss2["default"].item,
+	              to: "/"
+	            },
+	            "Setup"
+	          ),
+	          _react2["default"].createElement(
+	            _reactRouter.Link,
+	            {
+	              className: _indexCss2["default"].item,
+	              to: "/"
+	            },
+	            "Learn"
+	          ),
+	          _react2["default"].createElement(
+	            _reactRouter.Link,
+	            {
+	              className: _indexCss2["default"].item,
+	              to: "/"
+	            },
+	            "Documentation"
+	          ),
+	          _react2["default"].createElement(
+	            _reactRouter.Link,
+	            {
+	              className: _indexCss2["default"].item,
+	              to: "/"
+	            },
+	            "Plugins"
+	          )
+	        ),
+	        _react2["default"].createElement(
+	          "section",
+	          { className: _indexCss2["default"].right },
+	          _react2["default"].createElement(
+	            _reactRouter.Link,
+	            {
+	              className: _indexCss2["default"].item,
+	              to: "/"
+	            },
+	            "Slack"
+	          ),
+	          _react2["default"].createElement(
+	            _reactRouter.Link,
+	            {
+	              className: _indexCss2["default"].item,
+	              to: "/"
+	            },
+	            "Twitter"
+	          ),
+	          _react2["default"].createElement(
+	            _reactRouter.Link,
+	            {
+	              className: _indexCss2["default"].item,
+	              to: "/"
+	            },
+	            "Github"
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Navbar;
+	})(_react.Component);
+
+	exports["default"] = Navbar;
+	module.exports = exports["default"];
+
+/***/ },
+/* 328 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"nav":"web_modules-Navbar-index--nav--2-dbF","item":"web_modules-Navbar-index--item--1gReO","left":"web_modules-Navbar-index--left--2AqJe","right":"web_modules-Navbar-index--right--3WMjp"};
+
+/***/ },
+/* 329 */,
+/* 330 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _indexCss = __webpack_require__(331);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
@@ -29335,7 +29527,34 @@
 	  _createClass(Footer, [{
 	    key: "render",
 	    value: function render() {
-	      return _react2["default"].createElement("footer", { className: _indexCss2["default"].footer });
+	      return _react2["default"].createElement(
+	        "footer",
+	        { className: _indexCss2["default"].footer },
+	        _react2["default"].createElement(
+	          "section",
+	          null,
+	          _react2["default"].createElement(
+	            "p",
+	            null,
+	            "Distributed under the MIT License."
+	          ),
+	          _react2["default"].createElement(
+	            "p",
+	            null,
+	            "Found an issue?",
+	            _react2["default"].createElement(
+	              "a",
+	              { href: "https://github.com/postcss/postcss.org" },
+	              "Report it!"
+	            )
+	          )
+	        ),
+	        _react2["default"].createElement(
+	          "section",
+	          null,
+	          _react2["default"].createElement("img", { alt: "Evil Martians Logo" })
+	        )
+	      );
 	    }
 	  }]);
 
@@ -29346,23 +29565,23 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 327 */
+/* 331 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"footer":"web_modules-Footer-index--footer--3mTrO"};
 
 /***/ },
-/* 328 */,
-/* 329 */
+/* 332 */,
+/* 333 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"wrapper":"web_modules-Wrapper-index--wrapper--2PAkD"};
 
 /***/ },
-/* 330 */,
-/* 331 */
+/* 334 */,
+/* 335 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29375,32 +29594,32 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 332 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./docs/create-postcss-plugin/index.md": 333,
-		"./docs/create-postcss-plugin/tools.md": 334,
-		"./docs/guidelines/index.md": 335,
-		"./docs/guidelines/plugins.md": 336,
-		"./docs/guidelines/runners.md": 337,
-		"./docs/index.md": 338,
-		"./docs/sourcemaps.md": 339,
-		"./docs/syntax.md": 340,
-		"./get-involved/articles.md": 341,
-		"./get-involved/contribute/postcss.md": 342,
-		"./get-involved/contribute/postcss.org.md": 343,
-		"./get-involved/videos.md": 344,
-		"./get-started/adding-plugins.md": 345,
-		"./get-started/adding-postcss.md": 346,
-		"./get-started/index.md": 347,
-		"./index.md": 348,
-		"./learn/introduction/faq.md": 349,
-		"./learn/introduction/what-is-postcss.md": 350,
-		"./learn/introduction/why-postcss.md": 351,
-		"./learn/resources/articles.md": 352,
-		"./learn/resources/index.md": 353,
-		"./learn/resources/videos.md": 354
+		"./docs/create-postcss-plugin/index.md": 337,
+		"./docs/create-postcss-plugin/tools.md": 338,
+		"./docs/guidelines/index.md": 339,
+		"./docs/guidelines/plugins.md": 340,
+		"./docs/guidelines/runners.md": 341,
+		"./docs/index.md": 342,
+		"./docs/sourcemaps.md": 343,
+		"./docs/syntax.md": 344,
+		"./get-involved/articles.md": 345,
+		"./get-involved/contribute/postcss.md": 346,
+		"./get-involved/contribute/postcss.org.md": 347,
+		"./get-involved/videos.md": 348,
+		"./get-started/adding-plugins.md": 349,
+		"./get-started/adding-postcss.md": 350,
+		"./get-started/index.md": 351,
+		"./index.md": 352,
+		"./learn/introduction/faq.md": 353,
+		"./learn/introduction/what-is-postcss.md": 354,
+		"./learn/introduction/why-postcss.md": 355,
+		"./learn/resources/articles.md": 356,
+		"./learn/resources/index.md": 357,
+		"./learn/resources/videos.md": 358
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -29413,137 +29632,137 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 332;
+	webpackContext.id = 336;
 
-
-/***/ },
-/* 333 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
-
-/***/ },
-/* 334 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
-
-/***/ },
-/* 335 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
-
-/***/ },
-/* 336 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
 
 /***/ },
 /* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
+	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
 
 /***/ },
 /* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/index.json"
+	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
 
 /***/ },
 /* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
 
 /***/ },
 /* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/syntax/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
 
 /***/ },
 /* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
 
 /***/ },
 /* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
+	module.exports = __webpack_require__.p + "docs/index.json"
 
 /***/ },
 /* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
+	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
 
 /***/ },
 /* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
+	module.exports = __webpack_require__.p + "docs/syntax/index.json"
 
 /***/ },
 /* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
+	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
 
 /***/ },
 /* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
+	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
 
 /***/ },
 /* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/index.json"
+	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
 
 /***/ },
 /* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "index.json"
+	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
 
 /***/ },
 /* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
+	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
 
 /***/ },
 /* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
+	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
 
 /***/ },
 /* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
+	module.exports = __webpack_require__.p + "get-started/index.json"
 
 /***/ },
 /* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
+	module.exports = __webpack_require__.p + "index.json"
 
 /***/ },
 /* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/resources/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
 
 /***/ },
 /* 354 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
+
+/***/ },
+/* 355 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
+
+/***/ },
+/* 356 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
+
+/***/ },
+/* 357 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/resources/index.json"
+
+/***/ },
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/resources/videos/index.json"
