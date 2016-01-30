@@ -63,7 +63,7 @@
 
 	var _utils = __webpack_require__(228);
 
-	__webpack_require__(336);
+	__webpack_require__(338);
 
 	var routes = _utils.RouteHandler;
 
@@ -9623,6 +9623,7 @@
 	 */
 	var EventInterface = {
 	  type: null,
+	  target: null,
 	  // currentTarget is set when dispatching; no use in copying it here
 	  currentTarget: emptyFunction.thatReturnsNull,
 	  eventPhase: null,
@@ -9656,8 +9657,6 @@
 	  this.dispatchConfig = dispatchConfig;
 	  this.dispatchMarker = dispatchMarker;
 	  this.nativeEvent = nativeEvent;
-	  this.target = nativeEventTarget;
-	  this.currentTarget = nativeEventTarget;
 
 	  var Interface = this.constructor.Interface;
 	  for (var propName in Interface) {
@@ -9668,7 +9667,11 @@
 	    if (normalize) {
 	      this[propName] = normalize(nativeEvent);
 	    } else {
-	      this[propName] = nativeEvent[propName];
+	      if (propName === 'target') {
+	        this.target = nativeEventTarget;
+	      } else {
+	        this[propName] = nativeEvent[propName];
+	      }
 	    }
 	  }
 
@@ -13510,7 +13513,10 @@
 	      }
 	    });
 
-	    nativeProps.children = content;
+	    if (content) {
+	      nativeProps.children = content;
+	    }
+
 	    return nativeProps;
 	  }
 
@@ -18971,7 +18977,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.6';
+	module.exports = '0.14.7';
 
 /***/ },
 /* 148 */
@@ -25781,7 +25787,7 @@
 	 * Route Handler
 	 */
 
-	var _Wrapper = __webpack_require__(326);
+	var _Wrapper = __webpack_require__(328);
 
 	var _Wrapper2 = _interopRequireDefault(_Wrapper);
 
@@ -25799,7 +25805,7 @@
 
 	// initialState
 	_extends({}, typeof window !== "undefined" && window.__INITIAL_STATE__, (true) && {
-	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(335))
+	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(337))
 	}, {
 
 	  pageComponents: _layouts2["default"]
@@ -29141,6 +29147,10 @@
 
 	var _Hero2 = _interopRequireDefault(_Hero);
 
+	var _indexCss = __webpack_require__(326);
+
+	var _indexCss2 = _interopRequireDefault(_indexCss);
+
 	var HomePage = (function (_Component) {
 	  _inherits(HomePage, _Component);
 
@@ -29168,15 +29178,23 @@
 	      return _react2["default"].createElement(
 	        "div",
 	        null,
-	        _react2["default"].createElement(_reactHelmet2["default"], {
-	          title: head.title,
-	          meta: meta
-	        }),
-	        _react2["default"].createElement(_Hero2["default"], null),
-	        body && _react2["default"].createElement("div", {
-	          dangerouslySetInnerHTML: { __html: body }
-	        }),
-	        this.props.children
+	        _react2["default"].createElement(
+	          "section",
+	          null,
+	          _react2["default"].createElement(_reactHelmet2["default"], {
+	            title: head.title,
+	            meta: meta
+	          }),
+	          _react2["default"].createElement(_Hero2["default"], null)
+	        ),
+	        _react2["default"].createElement(
+	          "section",
+	          { className: _indexCss2["default"].wrapper },
+	          body && _react2["default"].createElement("div", {
+	            dangerouslySetInnerHTML: { __html: body }
+	          }),
+	          this.props.children
+	        )
 	      );
 	    }
 	  }], [{
@@ -29273,6 +29291,14 @@
 /* 324 */,
 /* 325 */,
 /* 326 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"wrapper":"web_modules-layouts-HomePage-index--wrapper--2zNJS"};
+
+/***/ },
+/* 327 */,
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29299,15 +29325,15 @@
 
 	var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
-	var _Navbar = __webpack_require__(327);
+	var _Navbar = __webpack_require__(329);
 
 	var _Navbar2 = _interopRequireDefault(_Navbar);
 
-	var _Footer = __webpack_require__(330);
+	var _Footer = __webpack_require__(332);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _indexCss = __webpack_require__(333);
+	var _indexCss = __webpack_require__(335);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
@@ -29327,17 +29353,13 @@
 
 	      return _react2["default"].createElement(
 	        "div",
-	        null,
+	        { className: _indexCss2["default"].linterror },
 	        _react2["default"].createElement(_Navbar2["default"], null),
-	        _react2["default"].createElement(
-	          "div",
-	          { className: _indexCss2["default"].wrapper },
-	          _react2["default"].createElement(_reactHelmet2["default"], {
-	            meta: [{ property: "og:site_name", content: pkg.name }, { name: "twitter:site", content: "@" + pkg.twitter }]
-	          }),
-	          this.props.children,
-	          _react2["default"].createElement(_Footer2["default"], null)
-	        )
+	        _react2["default"].createElement(_reactHelmet2["default"], {
+	          meta: [{ property: "og:site_name", content: pkg.name }, { name: "twitter:site", content: "@" + pkg.twitter }]
+	        }),
+	        this.props.children,
+	        _react2["default"].createElement(_Footer2["default"], null)
 	      );
 	    }
 	  }], [{
@@ -29361,7 +29383,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 327 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29386,7 +29408,7 @@
 
 	var _reactRouter = __webpack_require__(160);
 
-	var _indexCss = __webpack_require__(328);
+	var _indexCss = __webpack_require__(330);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
@@ -29480,15 +29502,15 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 328 */
+/* 330 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"nav":"web_modules-Navbar-index--nav--2-dbF","item":"web_modules-Navbar-index--item--1gReO","left":"web_modules-Navbar-index--left--2AqJe","right":"web_modules-Navbar-index--right--3WMjp"};
 
 /***/ },
-/* 329 */,
-/* 330 */
+/* 331 */,
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29511,7 +29533,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _indexCss = __webpack_require__(331);
+	var _indexCss = __webpack_require__(333);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
@@ -29531,28 +29553,35 @@
 	        "footer",
 	        { className: _indexCss2["default"].footer },
 	        _react2["default"].createElement(
-	          "section",
-	          null,
+	          "div",
+	          { className: _indexCss2["default"].footer_wrap },
 	          _react2["default"].createElement(
-	            "p",
-	            null,
-	            "Distributed under the MIT License."
+	            "section",
+	            { className: _indexCss2["default"].info },
+	            _react2["default"].createElement(
+	              "p",
+	              null,
+	              "Distributed under the MIT License."
+	            ),
+	            _react2["default"].createElement(
+	              "p",
+	              null,
+	              "Found an issue?",
+	              _react2["default"].createElement(
+	                "a",
+	                {
+	                  className: _indexCss2["default"].report,
+	                  href: "https://github.com/postcss/postcss.org"
+	                },
+	                "Report it!"
+	              )
+	            )
 	          ),
 	          _react2["default"].createElement(
-	            "p",
+	            "section",
 	            null,
-	            "Found an issue?",
-	            _react2["default"].createElement(
-	              "a",
-	              { href: "https://github.com/postcss/postcss.org" },
-	              "Report it!"
-	            )
+	            _react2["default"].createElement("img", { className: _indexCss2["default"].logo, alt: "Evil Martians Logo" })
 	          )
-	        ),
-	        _react2["default"].createElement(
-	          "section",
-	          null,
-	          _react2["default"].createElement("img", { alt: "Evil Martians Logo" })
 	        )
 	      );
 	    }
@@ -29565,23 +29594,22 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 331 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"footer":"web_modules-Footer-index--footer--3mTrO"};
-
-/***/ },
-/* 332 */,
 /* 333 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"wrapper":"web_modules-Wrapper-index--wrapper--2PAkD"};
+	module.exports = {"footer":"web_modules-Footer-index--footer--3mTrO","footer_wrap":"web_modules-Footer-index--footer_wrap--2XVYy","info":"web_modules-Footer-index--info--ygZ0f","report":"web_modules-Footer-index--report--2OkWs"};
 
 /***/ },
 /* 334 */,
 /* 335 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 336 */,
+/* 337 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29594,32 +29622,32 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 336 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./docs/create-postcss-plugin/index.md": 337,
-		"./docs/create-postcss-plugin/tools.md": 338,
-		"./docs/guidelines/index.md": 339,
-		"./docs/guidelines/plugins.md": 340,
-		"./docs/guidelines/runners.md": 341,
-		"./docs/index.md": 342,
-		"./docs/sourcemaps.md": 343,
-		"./docs/syntax.md": 344,
-		"./get-involved/articles.md": 345,
-		"./get-involved/contribute/postcss.md": 346,
-		"./get-involved/contribute/postcss.org.md": 347,
-		"./get-involved/videos.md": 348,
-		"./get-started/adding-plugins.md": 349,
-		"./get-started/adding-postcss.md": 350,
-		"./get-started/index.md": 351,
-		"./index.md": 352,
-		"./learn/introduction/faq.md": 353,
-		"./learn/introduction/what-is-postcss.md": 354,
-		"./learn/introduction/why-postcss.md": 355,
-		"./learn/resources/articles.md": 356,
-		"./learn/resources/index.md": 357,
-		"./learn/resources/videos.md": 358
+		"./docs/create-postcss-plugin/index.md": 339,
+		"./docs/create-postcss-plugin/tools.md": 340,
+		"./docs/guidelines/index.md": 341,
+		"./docs/guidelines/plugins.md": 342,
+		"./docs/guidelines/runners.md": 343,
+		"./docs/index.md": 344,
+		"./docs/sourcemaps.md": 345,
+		"./docs/syntax.md": 346,
+		"./get-involved/articles.md": 347,
+		"./get-involved/contribute/postcss.md": 348,
+		"./get-involved/contribute/postcss.org.md": 349,
+		"./get-involved/videos.md": 350,
+		"./get-started/adding-plugins.md": 351,
+		"./get-started/adding-postcss.md": 352,
+		"./get-started/index.md": 353,
+		"./index.md": 354,
+		"./learn/introduction/faq.md": 355,
+		"./learn/introduction/what-is-postcss.md": 356,
+		"./learn/introduction/why-postcss.md": 357,
+		"./learn/resources/articles.md": 358,
+		"./learn/resources/index.md": 359,
+		"./learn/resources/videos.md": 360
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -29632,137 +29660,137 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 336;
+	webpackContext.id = 338;
 
-
-/***/ },
-/* 337 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
-
-/***/ },
-/* 338 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
 
 /***/ },
 /* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
+	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
 
 /***/ },
 /* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
+	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
 
 /***/ },
 /* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
 
 /***/ },
 /* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
 
 /***/ },
 /* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
 
 /***/ },
 /* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/syntax/index.json"
+	module.exports = __webpack_require__.p + "docs/index.json"
 
 /***/ },
 /* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
+	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
 
 /***/ },
 /* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
+	module.exports = __webpack_require__.p + "docs/syntax/index.json"
 
 /***/ },
 /* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
+	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
 
 /***/ },
 /* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
+	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
 
 /***/ },
 /* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
+	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
 
 /***/ },
 /* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
+	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
 
 /***/ },
 /* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/index.json"
+	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
 
 /***/ },
 /* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "index.json"
+	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
 
 /***/ },
 /* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
+	module.exports = __webpack_require__.p + "get-started/index.json"
 
 /***/ },
 /* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
+	module.exports = __webpack_require__.p + "index.json"
 
 /***/ },
 /* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
 
 /***/ },
 /* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
 
 /***/ },
 /* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/resources/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
 
 /***/ },
 /* 358 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
+
+/***/ },
+/* 359 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/resources/index.json"
+
+/***/ },
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/resources/videos/index.json"

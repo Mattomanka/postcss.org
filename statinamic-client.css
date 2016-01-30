@@ -1,5 +1,11 @@
 .web_modules-Hero-index--hero--2yLb_ {
-  height: 80%;
+  height: 350px;
+  background: #444;
+}
+.web_modules-layouts-HomePage-index--wrapper--2zNJS {
+  max-width: 800px;
+  max-width: 50rem;
+  margin: 0 auto;
 }
 .web_modules-Navbar-index--nav--2-dbF {
   display: -webkit-box;
@@ -33,14 +39,54 @@
   margin-right: 2em;
 }
 .web_modules-Footer-index--footer--3mTrO {
+  background: #eee7df;
+}
+
+.web_modules-Footer-index--footer_wrap--2XVYy {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  max-width: 800px;
+  max-width: 50rem;
+  margin: 0 auto
+}
+
+@media (min-width: 500px) {
+
+  .web_modules-Footer-index--footer_wrap--2XVYy {
+    text-align: inherit;
+    text-align: initial;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  }
+
+.web_modules-Footer-index--info--ygZ0f {
+  color: #48463e;
+}
+
+.web_modules-Footer-index--report--2OkWs {
+  color: #48463e;
+  margin-left: 4px;
+  margin-left: 0.25rem;
 }
 /* Some global resets */
 
@@ -50,13 +96,5 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-/* * */
-
-.web_modules-Wrapper-index--wrapper--2PAkD {
-  max-width: 800px;
-  max-width: 50rem;
-  margin: auto;
   font-family: system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
