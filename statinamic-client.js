@@ -63,7 +63,7 @@
 
 	var _utils = __webpack_require__(228);
 
-	__webpack_require__(338);
+	__webpack_require__(370);
 
 	var routes = _utils.RouteHandler;
 
@@ -25682,7 +25682,7 @@
 			"pretest": "npm run lint",
 			"test": "npm run static",
 			"posttest": "echo 'postcss.org' > dist/CNAME && touch dist/.nojekyll",
-			"styleguide-server": "styleguidist server --config style-guide/styleguide.config.js ",
+			"styleguide-server": "styleguidist server",
 			"styleguide-build": "styleguidist build"
 		},
 		"babel": {
@@ -25787,13 +25787,13 @@
 	 * Route Handler
 	 */
 
-	var _Wrapper = __webpack_require__(328);
+	var _App = __webpack_require__(353);
 
-	var _Wrapper2 = _interopRequireDefault(_Wrapper);
+	var _App2 = _interopRequireDefault(_App);
 
 	var RouteHandler = _react2["default"].createElement(
 	  _reactRouter.Route,
-	  { component: _Wrapper2["default"] },
+	  { component: _App2["default"] },
 	  _react2["default"].createElement(_reactRouter.Route, { path: "*", component: _statinamicLibPageContainer2["default"] })
 	);
 
@@ -25805,7 +25805,7 @@
 
 	// initialState
 	_extends({}, typeof window !== "undefined" && window.__INITIAL_STATE__, (true) && {
-	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(337))
+	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(369))
 	}, {
 
 	  pageComponents: _layouts2["default"]
@@ -29147,7 +29147,23 @@
 
 	var _Hero2 = _interopRequireDefault(_Hero);
 
-	var _indexCss = __webpack_require__(326);
+	var _InANutshell = __webpack_require__(328);
+
+	var _InANutshell2 = _interopRequireDefault(_InANutshell);
+
+	var _WayFinder = __webpack_require__(335);
+
+	var _WayFinder2 = _interopRequireDefault(_WayFinder);
+
+	var _Showcase = __webpack_require__(338);
+
+	var _Showcase2 = _interopRequireDefault(_Showcase);
+
+	var _ByTheCommunity = __webpack_require__(345);
+
+	var _ByTheCommunity2 = _interopRequireDefault(_ByTheCommunity);
+
+	var _indexCss = __webpack_require__(349);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
@@ -29164,9 +29180,7 @@
 	    key: "render",
 	    value: function render() {
 	      var pkg = this.context.metadata.pkg;
-	      var _props = this.props;
-	      var head = _props.head;
-	      var body = _props.body;
+	      var head = this.props.head;
 
 	      (0, _invariant2["default"])(typeof head.title === "string", "Your page needs a title");
 
@@ -29176,25 +29190,38 @@
 
 	      // { name: "twitter:description", content: pageDescription(body) },
 	      return _react2["default"].createElement(
-	        "div",
-	        null,
+	        "main",
+	        { className: _indexCss2["default"].root, role: "main" },
+	        _react2["default"].createElement(_reactHelmet2["default"], {
+	          title: head.title,
+	          meta: meta
+	        }),
 	        _react2["default"].createElement(
-	          "section",
-	          null,
-	          _react2["default"].createElement(_reactHelmet2["default"], {
-	            title: head.title,
-	            meta: meta
-	          }),
+	          "div",
+	          { className: _indexCss2["default"].hero },
 	          _react2["default"].createElement(_Hero2["default"], null)
 	        ),
 	        _react2["default"].createElement(
-	          "section",
-	          { className: _indexCss2["default"].wrapper },
-	          body && _react2["default"].createElement("div", {
-	            dangerouslySetInnerHTML: { __html: body }
-	          }),
-	          this.props.children
-	        )
+	          "div",
+	          { className: _indexCss2["default"].inANutshell },
+	          _react2["default"].createElement(_InANutshell2["default"], null)
+	        ),
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].wayFinder },
+	          _react2["default"].createElement(_WayFinder2["default"], null)
+	        ),
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].showcase },
+	          _react2["default"].createElement(_Showcase2["default"], null)
+	        ),
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].byTheCommunity },
+	          _react2["default"].createElement(_ByTheCommunity2["default"], null)
+	        ),
+	        this.props.children
 	      );
 	    }
 	  }], [{
@@ -29229,6 +29256,529 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports["default"] = Hero;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _indexCss = __webpack_require__(322);
+
+	var _indexCss2 = _interopRequireDefault(_indexCss);
+
+	var _postcssSvg = __webpack_require__(327);
+
+	var _postcssSvg2 = _interopRequireDefault(_postcssSvg);
+
+	function Hero() {
+
+	  return _react2["default"].createElement(
+	    "header",
+	    { className: _indexCss2["default"].root, role: "banner" },
+	    _react2["default"].createElement(
+	      "h1",
+	      { className: _indexCss2["default"].title },
+	      _react2["default"].createElement("img", {
+	        alt: "PostCSS",
+	        className: _indexCss2["default"].logo,
+	        src: _postcssSvg2["default"]
+	      })
+	    ),
+	    _react2["default"].createElement(
+	      "p",
+	      { className: _indexCss2["default"].tagline },
+	      "A tool for transforming CSS with JavaScript"
+	    )
+	  );
+	}
+
+	module.exports = exports["default"];
+
+/***/ },
+/* 322 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"root":"web_modules-Hero-index--root--2d9oM","title":"web_modules-Hero-index--title--3YMxk","tagline":"web_modules-Hero-index--tagline--3GcfQ"};
+
+/***/ },
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/Hero/postcss.svg";
+
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = InANutShell;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _indexCss = __webpack_require__(329);
+
+	var _indexCss2 = _interopRequireDefault(_indexCss);
+
+	var _autoprefixerSvg = __webpack_require__(331);
+
+	var _autoprefixerSvg2 = _interopRequireDefault(_autoprefixerSvg);
+
+	var _cssnextSvg = __webpack_require__(332);
+
+	var _cssnextSvg2 = _interopRequireDefault(_cssnextSvg);
+
+	var _cssModulesSvg = __webpack_require__(333);
+
+	var _cssModulesSvg2 = _interopRequireDefault(_cssModulesSvg);
+
+	var _stylelintSvg = __webpack_require__(334);
+
+	var _stylelintSvg2 = _interopRequireDefault(_stylelintSvg);
+
+	function InANutShell() {
+
+	  /* eslint-disable max-len */
+	  return _react2["default"].createElement(
+	    "div",
+	    { className: _indexCss2["default"].root },
+	    _react2["default"].createElement(
+	      "section",
+	      { className: _indexCss2["default"].item },
+	      _react2["default"].createElement(
+	        "div",
+	        { className: _indexCss2["default"].itemInner },
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].info },
+	          _react2["default"].createElement(
+	            "header",
+	            { className: _indexCss2["default"].header },
+	            _react2["default"].createElement("img", {
+	              alt: "Autoprefixer",
+	              className: _indexCss2["default"].logo,
+	              src: _autoprefixerSvg2["default"]
+	            }),
+	            _react2["default"].createElement(
+	              "h2",
+	              { className: _indexCss2["default"].title },
+	              "Increase code readability"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "p",
+	            { className: _indexCss2["default"].body },
+	            "Add vendor prefixes to CSS rules using values from Can I Use. Autoprefixer will use the data based on current browser popularity and property support to apply prefixes for you."
+	          )
+	        ),
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].example },
+	          _react2["default"].createElement(
+	            "figure",
+	            { className: _indexCss2["default"].figure },
+	            _react2["default"].createElement(
+	              "pre",
+	              { className: _indexCss2["default"].code },
+	              _react2["default"].createElement(
+	                "code",
+	                null,
+	                ":fullscreen {",
+	                _react2["default"].createElement("br", null),
+	                "}"
+	              )
+	            ),
+	            _react2["default"].createElement(
+	              "figcaption",
+	              { className: _indexCss2["default"].caption },
+	              "CSS input"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "figure",
+	            { className: _indexCss2["default"].figureOutput },
+	            _react2["default"].createElement(
+	              "pre",
+	              { className: _indexCss2["default"].code },
+	              _react2["default"].createElement(
+	                "code",
+	                null,
+	                ":",
+	                _react2["default"].createElement(
+	                  "span",
+	                  { className: _indexCss2["default"].highlight },
+	                  "-webkit-"
+	                ),
+	                ":full-screen {",
+	                _react2["default"].createElement("br", null),
+	                "}",
+	                _react2["default"].createElement("br", null),
+	                ":",
+	                _react2["default"].createElement(
+	                  "span",
+	                  { className: _indexCss2["default"].highlight },
+	                  "-moz-"
+	                ),
+	                ":full-screen {",
+	                _react2["default"].createElement("br", null),
+	                "}",
+	                _react2["default"].createElement("br", null),
+	                ":full-screen {",
+	                _react2["default"].createElement("br", null),
+	                "}",
+	                _react2["default"].createElement("br", null)
+	              )
+	            ),
+	            _react2["default"].createElement(
+	              "figcaption",
+	              { className: _indexCss2["default"].captionOutput },
+	              "CSS output"
+	            )
+	          )
+	        )
+	      )
+	    ),
+	    _react2["default"].createElement(
+	      "section",
+	      { className: _indexCss2["default"].itemAlt },
+	      _react2["default"].createElement(
+	        "div",
+	        { className: _indexCss2["default"].itemInnerAlt },
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].infoAlt },
+	          _react2["default"].createElement(
+	            "header",
+	            { className: _indexCss2["default"].header },
+	            _react2["default"].createElement("img", {
+	              alt: "Cssnext",
+	              className: _indexCss2["default"].logo,
+	              src: _cssnextSvg2["default"]
+	            }),
+	            _react2["default"].createElement(
+	              "h2",
+	              { className: _indexCss2["default"].title },
+	              "Use tomorrows CSS, today!"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "p",
+	            { className: _indexCss2["default"].body },
+	            "Write future-proof CSS and forget old preprocessor specific syntax. Use the latest CSS syntax today. It transforms CSS specs into more compatible CSS so you don’t need to wait for browser support."
+	          )
+	        ),
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].example },
+	          _react2["default"].createElement(
+	            "figure",
+	            { className: _indexCss2["default"].figure },
+	            _react2["default"].createElement(
+	              "pre",
+	              { className: _indexCss2["default"].code },
+	              _react2["default"].createElement(
+	                "code",
+	                null,
+	                ":root { ",
+	                _react2["default"].createElement("br", null),
+	                "  --red: #d33;",
+	                _react2["default"].createElement("br", null),
+	                "}",
+	                _react2["default"].createElement("br", null),
+	                "a { ",
+	                _react2["default"].createElement("br", null),
+	                "  &:hover {",
+	                _react2["default"].createElement("br", null),
+	                "    color: color(var(--red) a(54%));",
+	                _react2["default"].createElement("br", null),
+	                "  }",
+	                _react2["default"].createElement("br", null),
+	                "}"
+	              )
+	            ),
+	            _react2["default"].createElement(
+	              "figcaption",
+	              { className: _indexCss2["default"].caption },
+	              "CSS input"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "figure",
+	            { className: _indexCss2["default"].figureOutput },
+	            _react2["default"].createElement(
+	              "pre",
+	              { className: _indexCss2["default"].code },
+	              _react2["default"].createElement(
+	                "code",
+	                null,
+	                _react2["default"].createElement(
+	                  "span",
+	                  { className: _indexCss2["default"].highlight },
+	                  "a:hover"
+	                ),
+	                " { ",
+	                _react2["default"].createElement("br", null),
+	                "  color: ",
+	                _react2["default"].createElement(
+	                  "span",
+	                  { className: _indexCss2["default"].highlight },
+	                  "#dd3333"
+	                ),
+	                ";",
+	                _react2["default"].createElement("br", null),
+	                "  color: ",
+	                _react2["default"].createElement(
+	                  "span",
+	                  { className: _indexCss2["default"].highlight },
+	                  "rgba(221, 51, 51, 0.54)"
+	                ),
+	                ";",
+	                _react2["default"].createElement("br", null),
+	                "}",
+	                _react2["default"].createElement("br", null)
+	              )
+	            ),
+	            _react2["default"].createElement(
+	              "figcaption",
+	              { className: _indexCss2["default"].captionOutput },
+	              "CSS output"
+	            )
+	          )
+	        )
+	      )
+	    ),
+	    _react2["default"].createElement(
+	      "section",
+	      { className: _indexCss2["default"].item },
+	      _react2["default"].createElement(
+	        "div",
+	        { className: _indexCss2["default"].itemInner },
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].info },
+	          _react2["default"].createElement(
+	            "header",
+	            { className: _indexCss2["default"].header },
+	            _react2["default"].createElement("img", {
+	              alt: "CSS Modules",
+	              className: _indexCss2["default"].logo,
+	              src: _cssModulesSvg2["default"]
+	            }),
+	            _react2["default"].createElement(
+	              "h2",
+	              { className: _indexCss2["default"].title },
+	              "The end of the global CSS"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "p",
+	            { className: _indexCss2["default"].body },
+	            "CSS Modules means you never need to worry about your names being too generic, just use whatever makes the most sense."
+	          )
+	        ),
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].example },
+	          _react2["default"].createElement(
+	            "figure",
+	            { className: _indexCss2["default"].figure },
+	            _react2["default"].createElement(
+	              "pre",
+	              { className: _indexCss2["default"].code },
+	              _react2["default"].createElement(
+	                "code",
+	                null,
+	                ".name {",
+	                _react2["default"].createElement("br", null),
+	                "  color: gray;",
+	                _react2["default"].createElement("br", null),
+	                "}"
+	              )
+	            ),
+	            _react2["default"].createElement(
+	              "figcaption",
+	              { className: _indexCss2["default"].caption },
+	              "CSS input"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "figure",
+	            { className: _indexCss2["default"].figureOutput },
+	            _react2["default"].createElement(
+	              "pre",
+	              { className: _indexCss2["default"].code },
+	              _react2["default"].createElement(
+	                "code",
+	                null,
+	                _react2["default"].createElement(
+	                  "span",
+	                  { className: _indexCss2["default"].highlight },
+	                  ".Logo"
+	                ),
+	                "__name__",
+	                _react2["default"].createElement(
+	                  "span",
+	                  { className: _indexCss2["default"].highlight },
+	                  "SVK0g"
+	                ),
+	                " {",
+	                _react2["default"].createElement("br", null),
+	                "  color: gray;",
+	                _react2["default"].createElement("br", null),
+	                "}"
+	              )
+	            ),
+	            _react2["default"].createElement(
+	              "figcaption",
+	              { className: _indexCss2["default"].captionOutput },
+	              "CSS output"
+	            )
+	          )
+	        )
+	      )
+	    ),
+	    _react2["default"].createElement(
+	      "section",
+	      { className: _indexCss2["default"].itemAlt },
+	      _react2["default"].createElement(
+	        "div",
+	        { className: _indexCss2["default"].itemInnerAlt },
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].infoAlt },
+	          _react2["default"].createElement(
+	            "header",
+	            { className: _indexCss2["default"].header },
+	            _react2["default"].createElement("img", {
+	              alt: "stylelint",
+	              className: _indexCss2["default"].logo,
+	              src: _stylelintSvg2["default"]
+	            }),
+	            _react2["default"].createElement(
+	              "h2",
+	              { className: _indexCss2["default"].title },
+	              "Avoid errors in your CSS"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "p",
+	            { className: _indexCss2["default"].body },
+	            "Enforce consistent conventions and avoid errors in your stylesheets with stylelint, a modern CSS linter. It supports the latest CSS syntax, as well as CSS-like syntaxes, such as SCSS."
+	          )
+	        ),
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].example },
+	          _react2["default"].createElement(
+	            "figure",
+	            { className: _indexCss2["default"].figure },
+	            _react2["default"].createElement(
+	              "pre",
+	              { className: _indexCss2["default"].code },
+	              _react2["default"].createElement(
+	                "code",
+	                null,
+	                "a { ",
+	                _react2["default"].createElement("br", null),
+	                "  color: #d3;",
+	                _react2["default"].createElement("br", null),
+	                "}",
+	                _react2["default"].createElement("br", null)
+	              )
+	            ),
+	            _react2["default"].createElement(
+	              "figcaption",
+	              { className: _indexCss2["default"].caption },
+	              "CSS input"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "figure",
+	            { className: _indexCss2["default"].figureOutput },
+	            _react2["default"].createElement(
+	              "pre",
+	              { className: _indexCss2["default"].code },
+	              _react2["default"].createElement(
+	                "code",
+	                null,
+	                _react2["default"].createElement(
+	                  "u",
+	                  null,
+	                  "app.css"
+	                ),
+	                _react2["default"].createElement("br", null),
+	                "2:10 Invalid hex color"
+	              )
+	            ),
+	            _react2["default"].createElement(
+	              "figcaption",
+	              { className: _indexCss2["default"].captionOutput },
+	              "Console output"
+	            )
+	          )
+	        )
+	      )
+	    )
+	  );
+	}
+
+	module.exports = exports["default"];
+
+/***/ },
+/* 329 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"root":"web_modules-InANutshell-index--root--280g4","header":"web_modules-InANutshell-index--header--37Imo","logo":"web_modules-InANutshell-index--logo--2orVE","title":"web_modules-InANutshell-index--title--2Iv9a","body":"web_modules-InANutshell-index--body--1wQ_1","item":"web_modules-InANutshell-index--item--3qU8b","itemAlt":"web_modules-InANutshell-index--itemAlt--3OgWf web_modules-InANutshell-index--item--3qU8b","example":"web_modules-InANutshell-index--example--3uAlE","figure":"web_modules-InANutshell-index--figure--rq1OT","figureOutput":"web_modules-InANutshell-index--figureOutput--1UTz7 web_modules-InANutshell-index--figure--rq1OT","code":"web_modules-InANutshell-index--code--2-2Gk","highlight":"web_modules-InANutshell-index--highlight--2wyoR","caption":"web_modules-InANutshell-index--caption--igEVs","captionOutput":"web_modules-InANutshell-index--captionOutput--3sNnN web_modules-InANutshell-index--caption--igEVs","itemInner":"web_modules-InANutshell-index--itemInner--3WdMs","itemInnerAlt":"web_modules-InANutshell-index--itemInnerAlt--3_CXO web_modules-InANutshell-index--itemInner--3WdMs","info":"web_modules-InANutshell-index--info--1dHCJ","infoAlt":"web_modules-InANutshell-index--infoAlt--2Gxhq web_modules-InANutshell-index--info--1dHCJ"};
+
+/***/ },
+/* 330 */,
+/* 331 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/InANutshell/autoprefixer.svg";
+
+/***/ },
+/* 332 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/InANutshell/cssnext.svg";
+
+/***/ },
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/InANutshell/css-modules.svg";
+
+/***/ },
+/* 334 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/InANutshell/stylelint.svg";
+
+/***/ },
+/* 335 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -29244,61 +29794,304 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _indexCss = __webpack_require__(322);
+	var _indexCss = __webpack_require__(336);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
-	var Hero = (function (_Component) {
-	  _inherits(Hero, _Component);
+	var WayFinder = (function (_Component) {
+	  _inherits(WayFinder, _Component);
 
-	  function Hero() {
-	    _classCallCheck(this, Hero);
+	  function WayFinder() {
+	    _classCallCheck(this, WayFinder);
 
-	    _get(Object.getPrototypeOf(Hero.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(WayFinder.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(Hero, [{
+	  _createClass(WayFinder, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2["default"].createElement(
-	        "section",
-	        { className: _indexCss2["default"].hero },
-	        _react2["default"].createElement("img", { alt: "PostCSS Logo" }),
+	        "nav",
+	        { className: _indexCss2["default"].root, role: "navigation" },
 	        _react2["default"].createElement(
-	          "button",
-	          null,
-	          "Github"
+	          "ul",
+	          { className: _indexCss2["default"].inner },
+	          _react2["default"].createElement(
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLink,
+	                href: "https://github.com/postcss/postcss#usage"
+	              },
+	              "Installation & Setup"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLink,
+	                href: "https://github.com/postcss/postcss/tree/master/docs"
+	              },
+	              "Documentation"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLink,
+	                href: "https://github.com/postcss/postcss#articles"
+	              },
+	              "Learn"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLink,
+	                href: "http://postcss.parts/"
+	              },
+	              "Plugins"
+	            )
+	          )
 	        )
 	      );
 	    }
 	  }]);
 
-	  return Hero;
+	  return WayFinder;
 	})(_react.Component);
 
-	exports["default"] = Hero;
+	exports["default"] = WayFinder;
 	module.exports = exports["default"];
 
 /***/ },
-/* 322 */
+/* 336 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"hero":"web_modules-Hero-index--hero--2yLb_"};
+	module.exports = {"root":"web_modules-WayFinder-index--root--1NONu","inner":"web_modules-WayFinder-index--inner--2mRAP","item":"web_modules-WayFinder-index--item--Ol3JY","itemLink":"web_modules-WayFinder-index--itemLink--3wjX1"};
 
 /***/ },
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */
+/* 337 */,
+/* 338 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = Showcase;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _indexCss = __webpack_require__(339);
+
+	var _indexCss2 = _interopRequireDefault(_indexCss);
+
+	var _googleSvg = __webpack_require__(341);
+
+	var _googleSvg2 = _interopRequireDefault(_googleSvg);
+
+	var _wordpressSvg = __webpack_require__(342);
+
+	var _wordpressSvg2 = _interopRequireDefault(_wordpressSvg);
+
+	var _taobaoSvg = __webpack_require__(343);
+
+	var _taobaoSvg2 = _interopRequireDefault(_taobaoSvg);
+
+	var _webpackSvg = __webpack_require__(344);
+
+	var _webpackSvg2 = _interopRequireDefault(_webpackSvg);
+
+	function Showcase() {
+
+	  /* eslint-disable max-len */
+	  return _react2["default"].createElement(
+	    "section",
+	    { className: _indexCss2["default"].root },
+	    _react2["default"].createElement(
+	      "h2",
+	      { className: _indexCss2["default"].title },
+	      "Trusted by industry leaders"
+	    ),
+	    _react2["default"].createElement(
+	      "ul",
+	      { className: _indexCss2["default"].items },
+	      _react2["default"].createElement(
+	        "li",
+	        { className: _indexCss2["default"].item },
+	        _react2["default"].createElement("img", {
+	          alt: "Google",
+	          className: _indexCss2["default"].logo,
+	          src: _googleSvg2["default"]
+	        })
+	      ),
+	      _react2["default"].createElement(
+	        "li",
+	        { className: _indexCss2["default"].item },
+	        _react2["default"].createElement("img", {
+	          alt: "Wordpress",
+	          className: _indexCss2["default"].logo,
+	          src: _wordpressSvg2["default"]
+	        })
+	      ),
+	      _react2["default"].createElement(
+	        "li",
+	        { className: _indexCss2["default"].item },
+	        _react2["default"].createElement("img", {
+	          alt: "Webpack",
+	          className: _indexCss2["default"].logo,
+	          src: _webpackSvg2["default"]
+	        })
+	      ),
+	      _react2["default"].createElement(
+	        "li",
+	        { className: _indexCss2["default"].item },
+	        _react2["default"].createElement("img", {
+	          alt: "Taobao",
+	          className: _indexCss2["default"].logo,
+	          src: _taobaoSvg2["default"]
+	        })
+	      )
+	    ),
+	    _react2["default"].createElement(
+	      "p",
+	      { className: _indexCss2["default"].callToAction },
+	      "Your company is using PostCSS? ",
+	      _react2["default"].createElement(
+	        "a",
+	        {
+	          className: _indexCss2["default"].letUsKnow,
+	          href: "https://twitter.com/postcss"
+	        },
+	        "Let us know!"
+	      )
+	    )
+	  );
+	}
+
+	module.exports = exports["default"];
+
+/***/ },
+/* 339 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"wrapper":"web_modules-layouts-HomePage-index--wrapper--2zNJS"};
+	module.exports = {"root":"web_modules-Showcase-index--root--3eSKJ","title":"web_modules-Showcase-index--title--2Rmtr","items":"web_modules-Showcase-index--items--3wG5z","item":"web_modules-Showcase-index--item--9H94p","callToAction":"web_modules-Showcase-index--callToAction--3B9-z","letUsKnow":"web_modules-Showcase-index--letUsKnow--17tto"};
 
 /***/ },
-/* 327 */,
-/* 328 */
+/* 340 */,
+/* 341 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/Showcase/google.svg";
+
+/***/ },
+/* 342 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/Showcase/wordpress.svg";
+
+/***/ },
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/Showcase/taobao.svg";
+
+/***/ },
+/* 344 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/Showcase/webpack.svg";
+
+/***/ },
+/* 345 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = ByTheCommunity;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _indexCss = __webpack_require__(346);
+
+	var _indexCss2 = _interopRequireDefault(_indexCss);
+
+	function ByTheCommunity() {
+
+	  /* eslint-disable max-len */
+	  return _react2["default"].createElement(
+	    "section",
+	    { className: _indexCss2["default"].root, role: "banner" },
+	    _react2["default"].createElement(
+	      "h2",
+	      { className: _indexCss2["default"].title },
+	      "Built by community for community"
+	    ),
+	    _react2["default"].createElement(
+	      "p",
+	      { className: _indexCss2["default"].body },
+	      "PostCSS developed and maintained by hundreds of open source contributors. Become part of the family — ",
+	      _react2["default"].createElement(
+	        "a",
+	        {
+	          className: _indexCss2["default"].submit,
+	          href: "https://github.com/postcss/postcss/compare"
+	        },
+	        "submit your first Pull Request!"
+	      )
+	    )
+	  );
+	}
+
+	module.exports = exports["default"];
+
+/***/ },
+/* 346 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"root":"web_modules-ByTheCommunity-index--root--35Gmc","title":"web_modules-ByTheCommunity-index--title--3s9dL","body":"web_modules-ByTheCommunity-index--body--1wLdU","submit":"web_modules-ByTheCommunity-index--submit--3TGLP"};
+
+/***/ },
+/* 347 */,
+/* 348 */,
+/* 349 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"root":"web_modules-layouts-HomePage-index--root--q_a6u","showcase":"web_modules-layouts-HomePage-index--showcase--3qv2n","byTheCommunity":"web_modules-layouts-HomePage-index--byTheCommunity--1GGtI","wayFinder":"web_modules-layouts-HomePage-index--wayFinder--1eCSP"};
+
+/***/ },
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29325,15 +30118,19 @@
 
 	var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
-	var _Navbar = __webpack_require__(329);
+	var _Navigation = __webpack_require__(354);
 
-	var _Navbar2 = _interopRequireDefault(_Navbar);
+	var _Navigation2 = _interopRequireDefault(_Navigation);
 
-	var _Footer = __webpack_require__(332);
+	var _Social = __webpack_require__(357);
+
+	var _Social2 = _interopRequireDefault(_Social);
+
+	var _Footer = __webpack_require__(363);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _indexCss = __webpack_require__(335);
+	var _indexCss = __webpack_require__(367);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
@@ -29353,12 +30150,17 @@
 
 	      return _react2["default"].createElement(
 	        "div",
-	        { className: _indexCss2["default"].linterror },
-	        _react2["default"].createElement(_Navbar2["default"], null),
+	        { className: _indexCss2["default"].root },
 	        _react2["default"].createElement(_reactHelmet2["default"], {
 	          meta: [{ property: "og:site_name", content: pkg.name }, { name: "twitter:site", content: "@" + pkg.twitter }]
 	        }),
-	        this.props.children,
+	        _react2["default"].createElement(
+	          "div",
+	          { className: _indexCss2["default"].children },
+	          this.props.children
+	        ),
+	        _react2["default"].createElement(_Navigation2["default"], null),
+	        _react2["default"].createElement(_Social2["default"], null),
 	        _react2["default"].createElement(_Footer2["default"], null)
 	      );
 	    }
@@ -29383,7 +30185,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 329 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29406,111 +30208,97 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(160);
-
-	var _indexCss = __webpack_require__(330);
+	var _indexCss = __webpack_require__(355);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
-	var Navbar = (function (_Component) {
-	  _inherits(Navbar, _Component);
+	var Navigation = (function (_Component) {
+	  _inherits(Navigation, _Component);
 
-	  function Navbar() {
-	    _classCallCheck(this, Navbar);
+	  function Navigation() {
+	    _classCallCheck(this, Navigation);
 
-	    _get(Object.getPrototypeOf(Navbar.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(Navigation.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(Navbar, [{
+	  _createClass(Navigation, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2["default"].createElement(
 	        "nav",
-	        { className: _indexCss2["default"].nav },
+	        { className: _indexCss2["default"].root, role: "navigation" },
 	        _react2["default"].createElement(
-	          "section",
-	          { className: _indexCss2["default"].left },
+	          "ul",
+	          { className: _indexCss2["default"].inner },
 	          _react2["default"].createElement(
-	            _reactRouter.Link,
-	            {
-	              className: _indexCss2["default"].item,
-	              to: "/"
-	            },
-	            "Setup"
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLink,
+	                href: "https://github.com/postcss/postcss#usage"
+	              },
+	              "Setup"
+	            )
 	          ),
 	          _react2["default"].createElement(
-	            _reactRouter.Link,
-	            {
-	              className: _indexCss2["default"].item,
-	              to: "/"
-	            },
-	            "Learn"
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLink,
+	                href: "https://github.com/postcss/postcss/tree/master/docs"
+	              },
+	              "Docs"
+	            )
 	          ),
 	          _react2["default"].createElement(
-	            _reactRouter.Link,
-	            {
-	              className: _indexCss2["default"].item,
-	              to: "/"
-	            },
-	            "Documentation"
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLink,
+	                href: "https://github.com/postcss/postcss#articles"
+	              },
+	              "Learn"
+	            )
 	          ),
 	          _react2["default"].createElement(
-	            _reactRouter.Link,
-	            {
-	              className: _indexCss2["default"].item,
-	              to: "/"
-	            },
-	            "Plugins"
-	          )
-	        ),
-	        _react2["default"].createElement(
-	          "section",
-	          { className: _indexCss2["default"].right },
-	          _react2["default"].createElement(
-	            _reactRouter.Link,
-	            {
-	              className: _indexCss2["default"].item,
-	              to: "/"
-	            },
-	            "Slack"
-	          ),
-	          _react2["default"].createElement(
-	            _reactRouter.Link,
-	            {
-	              className: _indexCss2["default"].item,
-	              to: "/"
-	            },
-	            "Twitter"
-	          ),
-	          _react2["default"].createElement(
-	            _reactRouter.Link,
-	            {
-	              className: _indexCss2["default"].item,
-	              to: "/"
-	            },
-	            "Github"
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLink,
+	                href: "http://postcss.parts/"
+	              },
+	              "Plugins"
+	            )
 	          )
 	        )
 	      );
 	    }
 	  }]);
 
-	  return Navbar;
+	  return Navigation;
 	})(_react.Component);
 
-	exports["default"] = Navbar;
+	exports["default"] = Navigation;
 	module.exports = exports["default"];
 
 /***/ },
-/* 330 */
+/* 355 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"nav":"web_modules-Navbar-index--nav--2-dbF","item":"web_modules-Navbar-index--item--1gReO","left":"web_modules-Navbar-index--left--2AqJe","right":"web_modules-Navbar-index--right--3WMjp"};
+	module.exports = {"root":"web_modules-Navigation-index--root--1mxkg","inner":"web_modules-Navigation-index--inner--22zwp","item":"web_modules-Navigation-index--item--1jxHi","itemLink":"web_modules-Navigation-index--itemLink--QzCEt"};
 
 /***/ },
-/* 331 */,
-/* 332 */
+/* 356 */,
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29533,9 +30321,117 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _indexCss = __webpack_require__(333);
+	var _indexCss = __webpack_require__(358);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
+
+	var Social = (function (_Component) {
+	  _inherits(Social, _Component);
+
+	  function Social() {
+	    _classCallCheck(this, Social);
+
+	    _get(Object.getPrototypeOf(Social.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Social, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "aside",
+	        { className: _indexCss2["default"].root, role: "complementary" },
+	        _react2["default"].createElement(
+	          "ul",
+	          { className: _indexCss2["default"].inner },
+	          _react2["default"].createElement(
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLinkTwitter,
+	                href: "https://twitter.com/postcss"
+	              },
+	              "Twitter"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLinkGitter,
+	                href: "https://gitter.im/postcss/postcss"
+	              },
+	              "Gitter"
+	            )
+	          ),
+	          _react2["default"].createElement(
+	            "li",
+	            { className: _indexCss2["default"].item },
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].itemLinkGithub,
+	                href: "https://github.com/postcss/postcss"
+	              },
+	              "Github"
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Social;
+	})(_react.Component);
+
+	exports["default"] = Social;
+	module.exports = exports["default"];
+
+/***/ },
+/* 358 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"root":"web_modules-Social-index--root--FZik9","inner":"web_modules-Social-index--inner--1wrQl","item":"web_modules-Social-index--item--3Y3XL","itemLink":"web_modules-Social-index--itemLink--1NK5v","itemLinkTwitter":"web_modules-Social-index--itemLinkTwitter--2TcXs web_modules-Social-index--itemLink--1NK5v","itemLinkGithub":"web_modules-Social-index--itemLinkGithub--9_KSw web_modules-Social-index--itemLink--1NK5v","itemLinkGitter":"web_modules-Social-index--itemLinkGitter--cfGek web_modules-Social-index--itemLink--1NK5v"};
+
+/***/ },
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _indexCss = __webpack_require__(364);
+
+	var _indexCss2 = _interopRequireDefault(_indexCss);
+
+	var _evilmartiansSvg = __webpack_require__(366);
+
+	var _evilmartiansSvg2 = _interopRequireDefault(_evilmartiansSvg);
 
 	var Footer = (function (_Component) {
 	  _inherits(Footer, _Component);
@@ -29551,36 +30447,40 @@
 	    value: function render() {
 	      return _react2["default"].createElement(
 	        "footer",
-	        { className: _indexCss2["default"].footer },
+	        { className: _indexCss2["default"].root, role: "contentinfo" },
 	        _react2["default"].createElement(
 	          "div",
-	          { className: _indexCss2["default"].footer_wrap },
+	          { className: _indexCss2["default"].inner },
 	          _react2["default"].createElement(
-	            "section",
+	            "div",
 	            { className: _indexCss2["default"].info },
 	            _react2["default"].createElement(
 	              "p",
-	              null,
+	              { className: _indexCss2["default"].license },
 	              "Distributed under the MIT License."
 	            ),
 	            _react2["default"].createElement(
 	              "p",
-	              null,
+	              { className: _indexCss2["default"].issue },
 	              "Found an issue?",
 	              _react2["default"].createElement(
 	                "a",
 	                {
 	                  className: _indexCss2["default"].report,
-	                  href: "https://github.com/postcss/postcss.org"
+	                  href: "https://github.com/postcss/postcss.org/issues"
 	                },
 	                "Report it!"
 	              )
 	            )
 	          ),
 	          _react2["default"].createElement(
-	            "section",
-	            null,
-	            _react2["default"].createElement("img", { className: _indexCss2["default"].logo, alt: "Evil Martians Logo" })
+	            "div",
+	            { className: _indexCss2["default"].logo },
+	            _react2["default"].createElement("img", {
+	              alt: "Evil Martians Logo",
+	              className: _indexCss2["default"].logoInner,
+	              src: _evilmartiansSvg2["default"]
+	            })
 	          )
 	        )
 	      );
@@ -29594,22 +30494,29 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 333 */
+/* 364 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"footer":"web_modules-Footer-index--footer--3mTrO","footer_wrap":"web_modules-Footer-index--footer_wrap--2XVYy","info":"web_modules-Footer-index--info--ygZ0f","report":"web_modules-Footer-index--report--2OkWs"};
+	module.exports = {"root":"web_modules-Footer-index--root--R2dg_","inner":"web_modules-Footer-index--inner--2nPg7","info":"web_modules-Footer-index--info--ygZ0f","issue":"web_modules-Footer-index--issue--2aXJQ","report":"web_modules-Footer-index--report--2OkWs"};
 
 /***/ },
-/* 334 */,
-/* 335 */
+/* 365 */,
+/* 366 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "_/web_modules/Footer/evilmartians.svg";
+
+/***/ },
+/* 367 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"root":"web_modules-App-index--root--2HA5R","children":"web_modules-App-index--children--2-ZFo"};
 
 /***/ },
-/* 336 */,
-/* 337 */
+/* 368 */,
+/* 369 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29622,32 +30529,32 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 338 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./docs/create-postcss-plugin/index.md": 339,
-		"./docs/create-postcss-plugin/tools.md": 340,
-		"./docs/guidelines/index.md": 341,
-		"./docs/guidelines/plugins.md": 342,
-		"./docs/guidelines/runners.md": 343,
-		"./docs/index.md": 344,
-		"./docs/sourcemaps.md": 345,
-		"./docs/syntax.md": 346,
-		"./get-involved/articles.md": 347,
-		"./get-involved/contribute/postcss.md": 348,
-		"./get-involved/contribute/postcss.org.md": 349,
-		"./get-involved/videos.md": 350,
-		"./get-started/adding-plugins.md": 351,
-		"./get-started/adding-postcss.md": 352,
-		"./get-started/index.md": 353,
-		"./index.md": 354,
-		"./learn/introduction/faq.md": 355,
-		"./learn/introduction/what-is-postcss.md": 356,
-		"./learn/introduction/why-postcss.md": 357,
-		"./learn/resources/articles.md": 358,
-		"./learn/resources/index.md": 359,
-		"./learn/resources/videos.md": 360
+		"./docs/create-postcss-plugin/index.md": 371,
+		"./docs/create-postcss-plugin/tools.md": 372,
+		"./docs/guidelines/index.md": 373,
+		"./docs/guidelines/plugins.md": 374,
+		"./docs/guidelines/runners.md": 375,
+		"./docs/index.md": 376,
+		"./docs/sourcemaps.md": 377,
+		"./docs/syntax.md": 378,
+		"./get-involved/articles.md": 379,
+		"./get-involved/contribute/postcss.md": 380,
+		"./get-involved/contribute/postcss.org.md": 381,
+		"./get-involved/videos.md": 382,
+		"./get-started/adding-plugins.md": 383,
+		"./get-started/adding-postcss.md": 384,
+		"./get-started/index.md": 385,
+		"./index.md": 386,
+		"./learn/introduction/faq.md": 387,
+		"./learn/introduction/what-is-postcss.md": 388,
+		"./learn/introduction/why-postcss.md": 389,
+		"./learn/resources/articles.md": 390,
+		"./learn/resources/index.md": 391,
+		"./learn/resources/videos.md": 392
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -29660,137 +30567,137 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 338;
+	webpackContext.id = 370;
 
 
 /***/ },
-/* 339 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
 
 /***/ },
-/* 340 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
 
 /***/ },
-/* 341 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
 
 /***/ },
-/* 342 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
 
 /***/ },
-/* 343 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
 
 /***/ },
-/* 344 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/index.json"
 
 /***/ },
-/* 345 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
 
 /***/ },
-/* 346 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "docs/syntax/index.json"
 
 /***/ },
-/* 347 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
 
 /***/ },
-/* 348 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
 
 /***/ },
-/* 349 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
 
 /***/ },
-/* 350 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
 
 /***/ },
-/* 351 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
 
 /***/ },
-/* 352 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
 
 /***/ },
-/* 353 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "get-started/index.json"
 
 /***/ },
-/* 354 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "index.json"
 
 /***/ },
-/* 355 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
 
 /***/ },
-/* 356 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
 
 /***/ },
-/* 357 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
 
 /***/ },
-/* 358 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
 
 /***/ },
-/* 359 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/resources/index.json"
 
 /***/ },
-/* 360 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/resources/videos/index.json"
