@@ -30476,11 +30476,18 @@
 	          _react2["default"].createElement(
 	            "div",
 	            { className: _indexCss2["default"].logo },
-	            _react2["default"].createElement("img", {
-	              alt: "Evil Martians Logo",
-	              className: _indexCss2["default"].logoInner,
-	              src: _evilmartiansSvg2["default"]
-	            })
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].logoLink,
+	                href: "https://evilmartians.com/"
+	              },
+	              _react2["default"].createElement("img", {
+	                alt: "Evil Martians",
+	                className: _indexCss2["default"].logoInner,
+	                src: _evilmartiansSvg2["default"]
+	              })
+	            )
 	          )
 	        )
 	      );
