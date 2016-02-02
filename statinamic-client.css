@@ -97,7 +97,8 @@
   -webkit-flex-direction: column-reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  width: 80%;
+  margin-right: 32px;
+  margin-right: 2rem;
 }
 
 .web_modules-InANutshell-index--figureOutput--1UTz7 {
@@ -108,9 +109,9 @@
           flex-direction: column;
   margin-left: 32px;
   margin-left: 2rem;
+  margin-right: 0;
   -webkit-transform: translateY(-1rem);
           transform: translateY(-1rem);
-  width: auto;
 }
 
 .web_modules-InANutshell-index--code--2-2Gk {
@@ -178,7 +179,7 @@
   }
 
   .web_modules-InANutshell-index--example--3uAlE {
-    min-width: 18.5rem;
+    min-width: 22rem;
   }
 }
 .web_modules-WayFinder-index--root--1NONu {
