@@ -29974,7 +29974,7 @@
 	    _react2["default"].createElement(
 	      "p",
 	      { className: _indexCss2["default"].callToAction },
-	      "Your company is using PostCSS? ",
+	      "Is your company using PostCSS? ",
 	      _react2["default"].createElement(
 	        "a",
 	        {
