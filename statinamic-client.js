@@ -29382,7 +29382,16 @@
 	          _react2["default"].createElement(
 	            "p",
 	            { className: _indexCss2["default"].body },
-	            "Add vendor prefixes to CSS rules using values from Can I Use. Autoprefixer will use the data based on current browser popularity and property support to apply prefixes for you."
+	            "Add vendor prefixes to CSS rules using values from Can I Use. ",
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].tool,
+	                href: "https://github.com/postcss/autoprefixer"
+	              },
+	              "Autoprefixer"
+	            ),
+	            " will use the data based on current browser popularity and property support to apply prefixes for you."
 	          )
 	        ),
 	        _react2["default"].createElement(
@@ -29478,7 +29487,16 @@
 	          _react2["default"].createElement(
 	            "p",
 	            { className: _indexCss2["default"].body },
-	            "Write future-proof CSS and forget old preprocessor specific syntax. Use the latest CSS syntax today. It transforms CSS specs into more compatible CSS so you don’t need to wait for browser support."
+	            "Write future-proof CSS and forget old preprocessor specific syntax. Use the latest CSS syntax today with ",
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].tool,
+	                href: "http://cssnext.io/"
+	              },
+	              "cssnext"
+	            ),
+	            ". It transforms CSS specs into more compatible CSS so you don’t need to wait for browser support."
 	          )
 	        ),
 	        _react2["default"].createElement(
@@ -29587,7 +29605,15 @@
 	          _react2["default"].createElement(
 	            "p",
 	            { className: _indexCss2["default"].body },
-	            "CSS Modules means you never need to worry about your names being too generic, just use whatever makes the most sense."
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].tool,
+	                href: "https://github.com/css-modules/css-modules"
+	              },
+	              "CSS Modules"
+	            ),
+	            " means you never need to worry about your names being too generic, just use whatever makes the most sense."
 	          )
 	        ),
 	        _react2["default"].createElement(
@@ -29677,7 +29703,16 @@
 	          _react2["default"].createElement(
 	            "p",
 	            { className: _indexCss2["default"].body },
-	            "Enforce consistent conventions and avoid errors in your stylesheets with stylelint, a modern CSS linter. It supports the latest CSS syntax, as well as CSS-like syntaxes, such as SCSS."
+	            "Enforce consistent conventions and avoid errors in your stylesheets with ",
+	            _react2["default"].createElement(
+	              "a",
+	              {
+	                className: _indexCss2["default"].tool,
+	                href: "http://stylelint.io/"
+	              },
+	              "stylelint"
+	            ),
+	            ", a modern CSS linter. It supports the latest CSS syntax, as well as CSS-like syntaxes, such as SCSS."
 	          )
 	        ),
 	        _react2["default"].createElement(
@@ -29743,7 +29778,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"root":"web_modules-InANutshell-index--root--280g4","header":"web_modules-InANutshell-index--header--37Imo","logo":"web_modules-InANutshell-index--logo--2orVE","title":"web_modules-InANutshell-index--title--2Iv9a","body":"web_modules-InANutshell-index--body--1wQ_1","item":"web_modules-InANutshell-index--item--3qU8b","itemAlt":"web_modules-InANutshell-index--itemAlt--3OgWf web_modules-InANutshell-index--item--3qU8b","example":"web_modules-InANutshell-index--example--3uAlE","figure":"web_modules-InANutshell-index--figure--rq1OT","figureOutput":"web_modules-InANutshell-index--figureOutput--1UTz7 web_modules-InANutshell-index--figure--rq1OT","code":"web_modules-InANutshell-index--code--2-2Gk","highlight":"web_modules-InANutshell-index--highlight--2wyoR","caption":"web_modules-InANutshell-index--caption--igEVs","captionOutput":"web_modules-InANutshell-index--captionOutput--3sNnN web_modules-InANutshell-index--caption--igEVs","itemInner":"web_modules-InANutshell-index--itemInner--3WdMs","itemInnerAlt":"web_modules-InANutshell-index--itemInnerAlt--3_CXO web_modules-InANutshell-index--itemInner--3WdMs","info":"web_modules-InANutshell-index--info--1dHCJ","infoAlt":"web_modules-InANutshell-index--infoAlt--2Gxhq web_modules-InANutshell-index--info--1dHCJ"};
+	module.exports = {"root":"web_modules-InANutshell-index--root--280g4","header":"web_modules-InANutshell-index--header--37Imo","logo":"web_modules-InANutshell-index--logo--2orVE","title":"web_modules-InANutshell-index--title--2Iv9a","body":"web_modules-InANutshell-index--body--1wQ_1","tool":"web_modules-InANutshell-index--tool--hdWFC","item":"web_modules-InANutshell-index--item--3qU8b","itemAlt":"web_modules-InANutshell-index--itemAlt--3OgWf web_modules-InANutshell-index--item--3qU8b","example":"web_modules-InANutshell-index--example--3uAlE","figure":"web_modules-InANutshell-index--figure--rq1OT","figureOutput":"web_modules-InANutshell-index--figureOutput--1UTz7 web_modules-InANutshell-index--figure--rq1OT","code":"web_modules-InANutshell-index--code--2-2Gk","highlight":"web_modules-InANutshell-index--highlight--2wyoR","caption":"web_modules-InANutshell-index--caption--igEVs","captionOutput":"web_modules-InANutshell-index--captionOutput--3sNnN web_modules-InANutshell-index--caption--igEVs","itemInner":"web_modules-InANutshell-index--itemInner--3WdMs","itemInnerAlt":"web_modules-InANutshell-index--itemInnerAlt--3_CXO web_modules-InANutshell-index--itemInner--3WdMs","info":"web_modules-InANutshell-index--info--1dHCJ","infoAlt":"web_modules-InANutshell-index--infoAlt--2Gxhq web_modules-InANutshell-index--info--1dHCJ"};
 
 /***/ },
 /* 330 */,
