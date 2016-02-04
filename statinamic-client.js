@@ -29815,7 +29815,7 @@
 	        { className: _indexCss2["default"].root, role: "navigation" },
 	        _react2["default"].createElement(
 	          "ul",
-	          { className: _indexCss2["default"].inner },
+	          { className: _indexCss2["default"].items },
 	          _react2["default"].createElement(
 	            "li",
 	            { className: _indexCss2["default"].item },
@@ -29880,7 +29880,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"root":"web_modules-WayFinder-index--root--1NONu","inner":"web_modules-WayFinder-index--inner--2mRAP","item":"web_modules-WayFinder-index--item--Ol3JY","itemLink":"web_modules-WayFinder-index--itemLink--3wjX1"};
+	module.exports = {"root":"web_modules-WayFinder-index--root--1NONu","items":"web_modules-WayFinder-index--items--1jhAG","item":"web_modules-WayFinder-index--item--Ol3JY","itemLink":"web_modules-WayFinder-index--itemLink--3wjX1"};
 
 /***/ },
 /* 337 */,
@@ -30229,7 +30229,7 @@
 	        { className: _indexCss2["default"].root, role: "navigation" },
 	        _react2["default"].createElement(
 	          "ul",
-	          { className: _indexCss2["default"].inner },
+	          { className: _indexCss2["default"].items },
 	          _react2["default"].createElement(
 	            "li",
 	            { className: _indexCss2["default"].item },
@@ -30294,7 +30294,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"root":"web_modules-Navigation-index--root--1mxkg","inner":"web_modules-Navigation-index--inner--22zwp","item":"web_modules-Navigation-index--item--1jxHi","itemLink":"web_modules-Navigation-index--itemLink--QzCEt"};
+	module.exports = {"root":"web_modules-Navigation-index--root--1mxkg","items":"web_modules-Navigation-index--items--TIrTp","item":"web_modules-Navigation-index--item--1jxHi","itemLink":"web_modules-Navigation-index--itemLink--QzCEt"};
 
 /***/ },
 /* 356 */,
@@ -30342,7 +30342,7 @@
 	        { className: _indexCss2["default"].root, role: "complementary" },
 	        _react2["default"].createElement(
 	          "ul",
-	          { className: _indexCss2["default"].inner },
+	          { className: _indexCss2["default"].items },
 	          _react2["default"].createElement(
 	            "li",
 	            { className: _indexCss2["default"].item },
@@ -30395,7 +30395,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"root":"web_modules-Social-index--root--FZik9","inner":"web_modules-Social-index--inner--1wrQl","item":"web_modules-Social-index--item--3Y3XL","itemLink":"web_modules-Social-index--itemLink--1NK5v","itemLinkTwitter":"web_modules-Social-index--itemLinkTwitter--2TcXs web_modules-Social-index--itemLink--1NK5v","itemLinkGithub":"web_modules-Social-index--itemLinkGithub--9_KSw web_modules-Social-index--itemLink--1NK5v","itemLinkGitter":"web_modules-Social-index--itemLinkGitter--cfGek web_modules-Social-index--itemLink--1NK5v"};
+	module.exports = {"root":"web_modules-Social-index--root--FZik9","items":"web_modules-Social-index--items--4XA67","item":"web_modules-Social-index--item--3Y3XL","itemLink":"web_modules-Social-index--itemLink--1NK5v","itemLinkTwitter":"web_modules-Social-index--itemLinkTwitter--2TcXs web_modules-Social-index--itemLink--1NK5v","itemLinkGithub":"web_modules-Social-index--itemLinkGithub--9_KSw web_modules-Social-index--itemLink--1NK5v","itemLinkGitter":"web_modules-Social-index--itemLinkGitter--cfGek web_modules-Social-index--itemLink--1NK5v"};
 
 /***/ },
 /* 359 */,

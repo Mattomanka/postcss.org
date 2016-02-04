@@ -187,7 +187,7 @@
   padding: 1rem;
 }
 
-.web_modules-WayFinder-index--inner--2mRAP {
+.web_modules-WayFinder-index--items--1jhAG {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -241,7 +241,7 @@
 }
 
 @media (min-width: 721px) {
-  .web_modules-WayFinder-index--inner--2mRAP {
+  .web_modules-WayFinder-index--items--1jhAG {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -444,7 +444,7 @@
   top: 0;
 }
 
-.web_modules-Navigation-index--inner--22zwp {
+.web_modules-Navigation-index--items--TIrTp {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -464,12 +464,11 @@
 }
 
 .web_modules-Navigation-index--item--1jxHi {
-  margin-right: 24px;
-  margin-right: 1.5rem
 }
 
-.web_modules-Navigation-index--item--1jxHi:last-child {
-  margin-right: 0;
+.web_modules-Navigation-index--item--1jxHi:not(:last-child) {
+  margin-right: 24px;
+  margin-right: 1.5rem;
 }
 
 .web_modules-Navigation-index--itemLink--QzCEt {
@@ -489,7 +488,7 @@
     width: 50%;
   }
 
-  .web_modules-Navigation-index--inner--22zwp {
+  .web_modules-Navigation-index--items--TIrTp {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
@@ -501,7 +500,7 @@
   background-color: rgba(0, 0, 0, 0.68);
 }
 
-.web_modules-Social-index--inner--1wrQl {
+.web_modules-Social-index--items--4XA67 {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -521,12 +520,11 @@
 }
 
 .web_modules-Social-index--item--3Y3XL {
-  margin-right: 24px;
-  margin-right: 1.5rem
 }
 
-.web_modules-Social-index--item--3Y3XL:last-child {
-  margin-right: 0;
+.web_modules-Social-index--item--3Y3XL:not(:last-child) {
+  margin-right: 24px;
+  margin-right: 1.5rem;
 }
 
 .web_modules-Social-index--itemLink--1NK5v {
@@ -566,7 +564,7 @@
     width: 50%;
   }
 
-  .web_modules-Social-index--inner--1wrQl {
+  .web_modules-Social-index--items--4XA67 {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
