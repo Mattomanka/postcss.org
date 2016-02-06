@@ -25683,7 +25683,9 @@
 			"test": "npm run static",
 			"posttest": "echo 'postcss.org' > dist/CNAME && touch dist/.nojekyll",
 			"styleguide-server": "styleguidist server",
-			"styleguide-build": "styleguidist build"
+			"styleguide-build": "styleguidist build",
+			"predeploy": "npm run build",
+			"deploy": "./scripts/deploy.sh"
 		},
 		"babel": {
 			"stage": 0
@@ -29951,9 +29953,9 @@
 
 	var _taobaoSvg2 = _interopRequireDefault(_taobaoSvg);
 
-	var _webpackSvg = __webpack_require__(344);
+	var _jetbrainsSvg = __webpack_require__(344);
 
-	var _webpackSvg2 = _interopRequireDefault(_webpackSvg);
+	var _jetbrainsSvg2 = _interopRequireDefault(_jetbrainsSvg);
 
 	function Showcase() {
 
@@ -29991,9 +29993,9 @@
 	        "li",
 	        { className: _indexCss2["default"].item },
 	        _react2["default"].createElement("img", {
-	          alt: "Webpack",
+	          alt: "Jetbrains",
 	          className: _indexCss2["default"].logo,
-	          src: _webpackSvg2["default"]
+	          src: _jetbrainsSvg2["default"]
 	        })
 	      ),
 	      _react2["default"].createElement(
@@ -30054,7 +30056,7 @@
 /* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "_/web_modules/Showcase/webpack.svg";
+	module.exports = __webpack_require__.p + "_/web_modules/Showcase/jetbrains.svg";
 
 /***/ },
 /* 345 */
