@@ -3,7 +3,7 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #2b2723 url(/_/web_modules/Hero/alchemy.jpg) no-repeat center center;
+  background: #2b2723 url(/_/web_modules/Hero/alchemy.jpg) no-repeat center bottom;
   background-size: cover;
   display: -webkit-box;
   display: -webkit-flex;
@@ -14,23 +14,23 @@
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 320px;
-  height: 20rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  height: 440px;
+  height: 27.5rem;
+}
+
+.web_modules-Hero-index--logo--1M_Wo {
+  margin-top: 80px;
+  margin-top: 5rem; /* Navigation/Social height */
 }
 
 .web_modules-Hero-index--title--3YMxk {
-  margin-top: 48px;
-  margin-top: 3rem; /* Navigation/Social height */
+  color: #fff;
+  font-size: 36px;
 }
 
 .web_modules-Hero-index--tagline--3GcfQ {
-  color: #ffffff;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 20px;
+  color: #fff;
+  font-size: 32px;
   line-height: 28px;
   margin-top: 16px;
   margin-top: 1rem;

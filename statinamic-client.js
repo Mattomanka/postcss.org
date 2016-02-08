@@ -29279,14 +29279,15 @@
 	  return _react2["default"].createElement(
 	    "header",
 	    { className: _indexCss2["default"].root, role: "banner" },
+	    _react2["default"].createElement("img", {
+	      alt: "PostCSS",
+	      className: _indexCss2["default"].logo,
+	      src: _postcssSvg2["default"]
+	    }),
 	    _react2["default"].createElement(
 	      "h1",
 	      { className: _indexCss2["default"].title },
-	      _react2["default"].createElement("img", {
-	        alt: "PostCSS",
-	        className: _indexCss2["default"].logo,
-	        src: _postcssSvg2["default"]
-	      })
+	      "PostCSS"
 	    ),
 	    _react2["default"].createElement(
 	      "p",
@@ -29303,7 +29304,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"root":"web_modules-Hero-index--root--2d9oM","title":"web_modules-Hero-index--title--3YMxk","tagline":"web_modules-Hero-index--tagline--3GcfQ"};
+	module.exports = {"root":"web_modules-Hero-index--root--2d9oM","logo":"web_modules-Hero-index--logo--1M_Wo","title":"web_modules-Hero-index--title--3YMxk","tagline":"web_modules-Hero-index--tagline--3GcfQ"};
 
 /***/ },
 /* 323 */,
