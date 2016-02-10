@@ -38,6 +38,99 @@
   padding: 0 1rem;
   text-align: center;
 }
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+/* Tomorrow Comment */
+.hljs-comment {
+  color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-regexp,
+.ruby .hljs-constant,
+.xml .hljs-tag .hljs-title,
+.xml .hljs-pi,
+.xml .hljs-doctype,
+.html .hljs-doctype,
+.css .hljs-id,
+.css .hljs-class,
+.css .hljs-pseudo {
+  color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-built_in,
+.hljs-literal,
+.hljs-params,
+.hljs-constant {
+  color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.ruby .hljs-class .hljs-title,
+.css .hljs-rule .hljs-attribute {
+  color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-value,
+.hljs-inheritance,
+.hljs-header,
+.hljs-name,
+.ruby .hljs-symbol,
+.xml .hljs-cdata {
+  color: #718c00;
+}
+
+/* Tomorrow Aqua */
+.hljs-title,
+.css .hljs-hexcolor {
+  color: #3e999f;
+}
+
+/* Tomorrow Blue */
+.hljs-function,
+.python .hljs-decorator,
+.python .hljs-title,
+.ruby .hljs-function .hljs-title,
+.ruby .hljs-title .hljs-keyword,
+.perl .hljs-sub,
+.javascript .hljs-title,
+.coffeescript .hljs-title {
+  color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.javascript .hljs-function {
+  color: #8959a8;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: white;
+  color: #4d4d4c;
+  padding: 0.5em;
+  -webkit-text-size-adjust: none;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}
 .web_modules-InANutshell-index--root--280g4 { /* placeholder */ }
 
 .web_modules-InANutshell-index--header--37Imo {
@@ -96,6 +189,7 @@
 }
 
 .web_modules-InANutshell-index--figure--rq1OT {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -107,6 +201,7 @@
           flex-direction: column-reverse;
   margin-right: 32px;
   margin-right: 2rem;
+  overflow: hidden;
 }
 
 .web_modules-InANutshell-index--figureOutput--1UTz7 {
@@ -122,19 +217,23 @@
           transform: translateY(-1rem);
 }
 
-.web_modules-InANutshell-index--code--2-2Gk {
+.web_modules-InANutshell-index--pre--2a_dB {
   background: white;
   border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
   color: #000000;
   color: rgba(0, 0, 0, 0.84);
-  font: 13px/20px monospace;
   overflow: auto;
-  padding: 8px 4px;
-  padding: 0.5rem 0.25rem;
+  padding: 8px;
+  padding: 0.5rem;
+}
+
+.web_modules-InANutshell-index--code--2-2Gk {
+  font: 13px/20px Monaco, Menlo, "Fira Mono", monospace;
 }
 
 .web_modules-InANutshell-index--highlight--2wyoR {
-  background: #007ede;
+  background: #fff478;
   color: white;
   display: inline-block;
   margin: 2px 0;
@@ -144,10 +243,17 @@
 }
 
 .web_modules-InANutshell-index--caption--igEVs {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  border-top-right-radius: 3px;
+  background-color: #f4f2ed;
   color: #48463e;
   color: rgba(72, 70, 62, 0.54);
   font-size: 11px;
   line-height: 16px;
+  padding: 2px 4px;
+  padding: 0.125rem 0.25rem;
 }
 
 .web_modules-InANutshell-index--captionOutput--3sNnN {
