@@ -63,7 +63,7 @@
 
 	var _utils = __webpack_require__(228);
 
-	__webpack_require__(513);
+	__webpack_require__(514);
 
 	var routes = _utils.RouteHandler;
 
@@ -25720,6 +25720,7 @@
 			"eslint-plugin-react": "^3.14.0",
 			"extract-text-webpack-plugin": "^0.8.2",
 			"file-loader": "^0.8.5",
+			"fontfaceobserver": "^1.6.3",
 			"highlight.js": "^8.9.1",
 			"history": "^1.17.0",
 			"invariant": "^2.2.0",
@@ -25823,7 +25824,7 @@
 
 	// initialState
 	_extends({}, typeof window !== "undefined" && window.__INITIAL_STATE__, (true) && {
-	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(512))
+	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(513))
 	}, {
 
 	  pageComponents: _layouts2["default"]
@@ -44527,6 +44528,25 @@
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
+	if (typeof window !== "undefined") {
+	  var FontFaceObserver = __webpack_require__(512);
+
+	  var MerriweatherObserver = new FontFaceObserver("Merriweather", {});
+	  var FiraSansObserver = new FontFaceObserver("Fira Sans", {});
+
+	  MerriweatherObserver.check().then(function () {
+	    document.body.classList.add("merriweather-loaded");
+	  }, function () {
+	    document.body.classList.remove("merriweather-loaded");
+	  });
+
+	  FiraSansObserver.check().then(function () {
+	    document.body.classList.add("fira-sans-loaded");
+	  }, function () {
+	    document.body.classList.remove("fira-sans-loaded");
+	  });
+	}
+
 	var Wrapper = (function (_Component) {
 	  _inherits(Wrapper, _Component);
 
@@ -44545,6 +44565,12 @@
 	        "div",
 	        { className: _indexCss2["default"].root },
 	        _react2["default"].createElement(_reactHelmet2["default"], {
+	          link: [{ "rel": "stylesheet",
+	            "href": "https://fonts.googleapis.com/css?family=Merriweather:400,700"
+	          }, { "rel": "stylesheet",
+	            "href": "https://fonts.googleapis.com/css?family=Fira+Sans:500,300,700"
+	          }],
+
 	          meta: [{ property: "og:site_name", content: pkg.name }, { name: "twitter:site", content: "@" + pkg.twitter }]
 	        }),
 	        _react2["default"].createElement(
@@ -44919,6 +44945,18 @@
 /* 512 */
 /***/ function(module, exports) {
 
+	(function(){'use strict';var h=!!document.addEventListener;function k(a,b){h?a.addEventListener("scroll",b,!1):a.attachEvent("scroll",b)}function w(a){document.body?a():h?document.addEventListener("DOMContentLoaded",a):document.onreadystatechange=function(){"interactive"==document.readyState&&a()}};function x(a){this.a=document.createElement("div");this.a.setAttribute("aria-hidden","true");this.a.appendChild(document.createTextNode(a));this.b=document.createElement("span");this.c=document.createElement("span");this.h=document.createElement("span");this.f=document.createElement("span");this.g=-1;this.b.style.cssText="display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.c.style.cssText="display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";
+	this.f.style.cssText="display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;";this.b.appendChild(this.h);this.c.appendChild(this.f);this.a.appendChild(this.b);this.a.appendChild(this.c)}
+	function y(a,b){a.a.style.cssText="min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font:"+b+";"}function z(a){var b=a.a.offsetWidth,c=b+100;a.f.style.width=c+"px";a.c.scrollLeft=c;a.b.scrollLeft=a.b.scrollWidth+100;return a.g!==b?(a.g=b,!0):!1}function A(a,b){function c(){var a=l;z(a)&&null!==a.a.parentNode&&b(a.g)}var l=a;k(a.b,c);k(a.c,c);z(a)};function B(a,b){var c=b||{};this.family=a;this.style=c.style||"normal";this.weight=c.weight||"normal";this.stretch=c.stretch||"normal"}var C=null,D=null,H=!!window.FontFace;function I(){if(null===D){var a=document.createElement("div");try{a.style.font="condensed 100px sans-serif"}catch(b){}D=""!==a.style.font}return D}function J(a,b){return[a.style,a.weight,I()?a.stretch:"","100px",b].join(" ")}
+	B.prototype.a=function(a,b){var c=this,l=a||"BESbswy",E=b||3E3,F=(new Date).getTime();return new Promise(function(a,b){if(H){var q=function(){(new Date).getTime()-F>=E?b(c):document.fonts.load(J(c,c.family),l).then(function(b){1<=b.length?a(c):setTimeout(q,25)},function(){b(c)})};q()}else w(function(){function r(){var b;if(b=-1!=e&&-1!=f||-1!=e&&-1!=g||-1!=f&&-1!=g)(b=e!=f&&e!=g&&f!=g)||(null===C&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),C=!!b&&(536>parseInt(b[1],
+	10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))),b=C&&(e==t&&f==t&&g==t||e==u&&f==u&&g==u||e==v&&f==v&&g==v)),b=!b;b&&(null!==d.parentNode&&d.parentNode.removeChild(d),clearTimeout(G),a(c))}function q(){if((new Date).getTime()-F>=E)null!==d.parentNode&&d.parentNode.removeChild(d),b(c);else{var a=document.hidden;if(!0===a||void 0===a)e=m.a.offsetWidth,f=n.a.offsetWidth,g=p.a.offsetWidth,r();G=setTimeout(q,50)}}var m=new x(l),n=new x(l),p=new x(l),e=-1,f=-1,g=-1,t=-1,u=-1,v=-1,d=document.createElement("div"),
+	G=0;d.dir="ltr";y(m,J(c,"sans-serif"));y(n,J(c,"serif"));y(p,J(c,"monospace"));d.appendChild(m.a);d.appendChild(n.a);d.appendChild(p.a);document.body.appendChild(d);t=m.a.offsetWidth;u=n.a.offsetWidth;v=p.a.offsetWidth;q();A(m,function(a){e=a;r()});y(m,J(c,'"'+c.family+'",sans-serif'));A(n,function(a){f=a;r()});y(n,J(c,'"'+c.family+'",serif'));A(p,function(a){g=a;r()});y(p,J(c,'"'+c.family+'",monospace'))})})};window.FontFaceObserver=B;window.FontFaceObserver.prototype.check=B.prototype.a;"undefined"!==typeof module&&(module.exports=window.FontFaceObserver);}());
+
+
+/***/ },
+/* 513 */
+/***/ function(module, exports) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -44929,32 +44967,32 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 513 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./docs/create-postcss-plugin/index.md": 514,
-		"./docs/create-postcss-plugin/tools.md": 515,
-		"./docs/guidelines/index.md": 516,
-		"./docs/guidelines/plugins.md": 517,
-		"./docs/guidelines/runners.md": 518,
-		"./docs/index.md": 519,
-		"./docs/sourcemaps.md": 520,
-		"./docs/syntax.md": 521,
-		"./get-involved/articles.md": 522,
-		"./get-involved/contribute/postcss.md": 523,
-		"./get-involved/contribute/postcss.org.md": 524,
-		"./get-involved/videos.md": 525,
-		"./get-started/adding-plugins.md": 526,
-		"./get-started/adding-postcss.md": 527,
-		"./get-started/index.md": 528,
-		"./index.md": 529,
-		"./learn/introduction/faq.md": 530,
-		"./learn/introduction/what-is-postcss.md": 531,
-		"./learn/introduction/why-postcss.md": 532,
-		"./learn/resources/articles.md": 533,
-		"./learn/resources/index.md": 534,
-		"./learn/resources/videos.md": 535
+		"./docs/create-postcss-plugin/index.md": 515,
+		"./docs/create-postcss-plugin/tools.md": 516,
+		"./docs/guidelines/index.md": 517,
+		"./docs/guidelines/plugins.md": 518,
+		"./docs/guidelines/runners.md": 519,
+		"./docs/index.md": 520,
+		"./docs/sourcemaps.md": 521,
+		"./docs/syntax.md": 522,
+		"./get-involved/articles.md": 523,
+		"./get-involved/contribute/postcss.md": 524,
+		"./get-involved/contribute/postcss.org.md": 525,
+		"./get-involved/videos.md": 526,
+		"./get-started/adding-plugins.md": 527,
+		"./get-started/adding-postcss.md": 528,
+		"./get-started/index.md": 529,
+		"./index.md": 530,
+		"./learn/introduction/faq.md": 531,
+		"./learn/introduction/what-is-postcss.md": 532,
+		"./learn/introduction/why-postcss.md": 533,
+		"./learn/resources/articles.md": 534,
+		"./learn/resources/index.md": 535,
+		"./learn/resources/videos.md": 536
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -44967,137 +45005,137 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 513;
+	webpackContext.id = 514;
 
-
-/***/ },
-/* 514 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
 
 /***/ },
 /* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
+	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
 
 /***/ },
 /* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
+	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
 
 /***/ },
 /* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
 
 /***/ },
 /* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
 
 /***/ },
 /* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
 
 /***/ },
 /* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
+	module.exports = __webpack_require__.p + "docs/index.json"
 
 /***/ },
 /* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/syntax/index.json"
+	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
 
 /***/ },
 /* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
+	module.exports = __webpack_require__.p + "docs/syntax/index.json"
 
 /***/ },
 /* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
+	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
 
 /***/ },
 /* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
+	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
 
 /***/ },
 /* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
+	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
 
 /***/ },
 /* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
+	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
 
 /***/ },
 /* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
+	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
 
 /***/ },
 /* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/index.json"
+	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
 
 /***/ },
 /* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "index.json"
+	module.exports = __webpack_require__.p + "get-started/index.json"
 
 /***/ },
 /* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
+	module.exports = __webpack_require__.p + "index.json"
 
 /***/ },
 /* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
 
 /***/ },
 /* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
 
 /***/ },
 /* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
 
 /***/ },
 /* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/resources/index.json"
+	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
 
 /***/ },
 /* 535 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/resources/index.json"
+
+/***/ },
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/resources/videos/index.json"
