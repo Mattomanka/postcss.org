@@ -25674,7 +25674,9 @@
 
 	module.exports = {
 		"private": true,
+		"name": "PostCSS",
 		"homepage": "http://postcss.org/",
+		"twitter": "PostCSS",
 		"scripts": {
 			"lint": "eslint --ignore-path .gitignore . && stylelint web_modules/**/*.css",
 			"eslint-staged": "eslint-staged",
