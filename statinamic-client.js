@@ -63,7 +63,7 @@
 
 	var _utils = __webpack_require__(228);
 
-	__webpack_require__(515);
+	__webpack_require__(517);
 
 	var routes = _utils.RouteHandler;
 
@@ -25676,6 +25676,7 @@
 		"private": true,
 		"name": "PostCSS",
 		"homepage": "http://postcss.org/",
+		"googleAnalyticsUA": "UA-73693753-1",
 		"twitter": "PostCSS",
 		"scripts": {
 			"lint": "eslint --ignore-path .gitignore . && stylelint web_modules/**/*.css",
@@ -25735,6 +25736,7 @@
 			"pre-commit": "^1.1.2",
 			"react": "^0.14.6",
 			"react-dom": "^0.14.6",
+			"react-google-analytics": "^0.2.0",
 			"react-helmet": "^2.2.0",
 			"react-redux": "^2.1.2",
 			"react-router": "^1.0.3",
@@ -25826,7 +25828,7 @@
 
 	// initialState
 	_extends({}, typeof window !== "undefined" && window.__INITIAL_STATE__, (true) && {
-	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(514))
+	  collection: (0, _statinamicLibMdCollectionLoaderMinify2["default"])(__webpack_require__(516))
 	}, {
 
 	  pageComponents: _layouts2["default"]
@@ -44526,16 +44528,20 @@
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _indexCss = __webpack_require__(510);
+	var _GoogleAnalyticsTracker = __webpack_require__(510);
+
+	var _GoogleAnalyticsTracker2 = _interopRequireDefault(_GoogleAnalyticsTracker);
+
+	var _indexCss = __webpack_require__(512);
 
 	var _indexCss2 = _interopRequireDefault(_indexCss);
 
-	var _opengraph2xJpg = __webpack_require__(512);
+	var _opengraph2xJpg = __webpack_require__(514);
 
 	var _opengraph2xJpg2 = _interopRequireDefault(_opengraph2xJpg);
 
 	if (typeof window !== "undefined") {
-	  var FontFaceObserver = __webpack_require__(513);
+	  var FontFaceObserver = __webpack_require__(515);
 
 	  var MerriweatherObserver = new FontFaceObserver("Merriweather", {});
 	  var FiraSansObserver = new FontFaceObserver("Fira Sans", {});
@@ -44568,31 +44574,36 @@
 	      var pkg = this.context.metadata.pkg;
 
 	      return _react2["default"].createElement(
-	        "div",
-	        { className: _indexCss2["default"].root },
-	        _react2["default"].createElement(_reactHelmet2["default"], {
-	          link: [{ "rel": "stylesheet",
-	            "href": "https://fonts.googleapis.com/css?family=Merriweather:400,700"
-	          }, { "rel": "stylesheet",
-	            "href": "https://fonts.googleapis.com/css?family=Fira+Sans:500,300,700"
-	          }],
-
-	          meta: [{ property: "og:site_name", content: pkg.name }, { property: "og:image", content: _opengraph2xJpg2["default"] }, { name: "twitter:site", content: "@" + pkg.twitter }]
-	        }),
+	        _GoogleAnalyticsTracker2["default"],
+	        { params: this.props.params },
 	        _react2["default"].createElement(
 	          "div",
-	          { className: _indexCss2["default"].children },
-	          this.props.children
-	        ),
-	        _react2["default"].createElement(_Navigation2["default"], null),
-	        _react2["default"].createElement(_Social2["default"], null),
-	        _react2["default"].createElement(_Footer2["default"], null)
+	          { className: _indexCss2["default"].root },
+	          _react2["default"].createElement(_reactHelmet2["default"], {
+	            link: [{ "rel": "stylesheet",
+	              "href": "https://fonts.googleapis.com/css?family=Merriweather:400,700"
+	            }, { "rel": "stylesheet",
+	              "href": "https://fonts.googleapis.com/css?family=Fira+Sans:500,300,700"
+	            }],
+
+	            meta: [{ property: "og:site_name", content: pkg.name }, { property: "og:image", content: _opengraph2xJpg2["default"] }, { name: "twitter:site", content: "@" + pkg.twitter }]
+	          }),
+	          _react2["default"].createElement(
+	            "div",
+	            { className: _indexCss2["default"].children },
+	            this.props.children
+	          ),
+	          _react2["default"].createElement(_Navigation2["default"], null),
+	          _react2["default"].createElement(_Social2["default"], null),
+	          _react2["default"].createElement(_Footer2["default"], null)
+	        )
 	      );
 	    }
 	  }], [{
 	    key: "propTypes",
 	    value: {
-	      children: _react.PropTypes.oneOfType([_react.PropTypes.array, _react.PropTypes.object])
+	      children: _react.PropTypes.oneOfType([_react.PropTypes.array, _react.PropTypes.object]),
+	      params: _react.PropTypes.object
 	    },
 	    enumerable: true
 	  }, {
@@ -44941,20 +44952,193 @@
 
 /***/ },
 /* 510 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactGoogleAnalytics = __webpack_require__(511);
+
+	var _reactGoogleAnalytics2 = _interopRequireDefault(_reactGoogleAnalytics);
+
+	var GoogleAnalyticsInitiailizer = _reactGoogleAnalytics2["default"].Initializer;
+
+	var isProduction = ({"NODE_ENV":"\"production\""}).NODE_ENV === "production";
+	var isClient = typeof window !== "undefined";
+
+	var GoogleAnalyticsTracker = (function (_Component) {
+	  _inherits(GoogleAnalyticsTracker, _Component);
+
+	  function GoogleAnalyticsTracker() {
+	    _classCallCheck(this, GoogleAnalyticsTracker);
+
+	    _get(Object.getPrototypeOf(GoogleAnalyticsTracker.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(GoogleAnalyticsTracker, [{
+	    key: "componentWillMount",
+	    value: function componentWillMount() {
+	      if (isClient) {
+	        var pkg = this.context.metadata.pkg;
+
+	        if (isProduction) {
+	          (0, _reactGoogleAnalytics2["default"])("create", pkg.googleAnalyticsUA, "auto");
+	        } else {
+	          console.info("ga.create", pkg.googleAnalyticsUA);
+	        }
+	        this.logPageview();
+	      }
+	    }
+	  }, {
+	    key: "componentWillReceiveProps",
+	    value: function componentWillReceiveProps(props) {
+	      if (props.params.splat !== this.props.params.splat) {
+	        this.logPageview();
+	      }
+	    }
+	  }, {
+	    key: "logPageview",
+	    value: function logPageview() {
+	      if (isClient) {
+	        if (isProduction) {
+	          (0, _reactGoogleAnalytics2["default"])("send", "pageview");
+	        } else {
+	          console.info("New pageview", window.location.href);
+	        }
+	      }
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        null,
+	        this.props.children,
+	        _react2["default"].createElement(GoogleAnalyticsInitiailizer, null)
+	      );
+	    }
+	  }], [{
+	    key: "propTypes",
+	    value: {
+	      children: _react.PropTypes.oneOfType([_react.PropTypes.array, _react.PropTypes.object]),
+	      params: _react.PropTypes.object.isRequired
+	    },
+	    enumerable: true
+	  }, {
+	    key: "contextTypes",
+	    value: {
+	      metadata: _react.PropTypes.object.isRequired
+	    },
+	    enumerable: true
+	  }]);
+
+	  return GoogleAnalyticsTracker;
+	})(_react.Component);
+
+	exports["default"] = GoogleAnalyticsTracker;
+	module.exports = exports["default"];
+
+/***/ },
+/* 511 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React, ga, script, scriptIsAdded, _name,
+	  __slice = [].slice;
+
+	React = __webpack_require__(3);
+
+	script = React.DOM.script;
+
+	if (typeof window !== "undefined" && window !== null) {
+	  if (window.GoogleAnalyticsObject == null) {
+	    window.GoogleAnalyticsObject = 'ga';
+	  }
+	}
+
+	if (typeof window !== "undefined" && window !== null) {
+	  if (window.ga == null) {
+	    window.ga = ga;
+	  }
+	}
+
+	ga = function() {
+	  var args;
+	  args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+	  return typeof window !== "undefined" && window !== null ? window[window.GoogleAnalyticsObject].apply(window, args) : void 0;
+	};
+
+	if (typeof window !== "undefined" && window !== null) {
+	  if (window[_name = window.GoogleAnalyticsObject] == null) {
+	    window[_name] = function() {
+	      var api, args;
+	      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+	      api = window[window.GoogleAnalyticsObject];
+	      (api.q || (api.q = [])).push(args);
+	    };
+	  }
+	}
+
+	scriptIsAdded = false;
+
+	ga.Initializer = React.createClass({
+	  displayName: 'GAInitializer',
+	  componentDidMount: function() {
+	    window[window.GoogleAnalyticsObject].l = new Date().getTime();
+	    if (!scriptIsAdded) {
+	      return this.addScript();
+	    }
+	  },
+	  addScript: function() {
+	    var el, s;
+	    scriptIsAdded = true;
+	    el = document.createElement('script');
+	    el.type = 'text/javascript';
+	    el.async = true;
+	    el.src = '//www.google-analytics.com/analytics.js';
+	    s = document.getElementsByTagName('script')[0];
+	    return s.parentNode.insertBefore(el, s);
+	  },
+	  render: function() {
+	    return script(null);
+	  }
+	});
+
+	module.exports = ga;
+
+
+/***/ },
+/* 512 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"root":"web_modules-App-index--root--2HA5R","children":"web_modules-App-index--children--2-ZFo"};
 
 /***/ },
-/* 511 */,
-/* 512 */
+/* 513 */,
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "_/web_modules/App/opengraph@2x.jpg";
 
 /***/ },
-/* 513 */
+/* 515 */
 /***/ function(module, exports) {
 
 	(function(){'use strict';var h=!!document.addEventListener;function k(a,b){h?a.addEventListener("scroll",b,!1):a.attachEvent("scroll",b)}function w(a){document.body?a():h?document.addEventListener("DOMContentLoaded",a):document.onreadystatechange=function(){"interactive"==document.readyState&&a()}};function x(a){this.a=document.createElement("div");this.a.setAttribute("aria-hidden","true");this.a.appendChild(document.createTextNode(a));this.b=document.createElement("span");this.c=document.createElement("span");this.h=document.createElement("span");this.f=document.createElement("span");this.g=-1;this.b.style.cssText="display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.c.style.cssText="display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";
@@ -44966,7 +45150,7 @@
 
 
 /***/ },
-/* 514 */
+/* 516 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -44979,32 +45163,32 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 515 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./docs/create-postcss-plugin/index.md": 516,
-		"./docs/create-postcss-plugin/tools.md": 517,
-		"./docs/guidelines/index.md": 518,
-		"./docs/guidelines/plugins.md": 519,
-		"./docs/guidelines/runners.md": 520,
-		"./docs/index.md": 521,
-		"./docs/sourcemaps.md": 522,
-		"./docs/syntax.md": 523,
-		"./get-involved/articles.md": 524,
-		"./get-involved/contribute/postcss.md": 525,
-		"./get-involved/contribute/postcss.org.md": 526,
-		"./get-involved/videos.md": 527,
-		"./get-started/adding-plugins.md": 528,
-		"./get-started/adding-postcss.md": 529,
-		"./get-started/index.md": 530,
-		"./index.md": 531,
-		"./learn/introduction/faq.md": 532,
-		"./learn/introduction/what-is-postcss.md": 533,
-		"./learn/introduction/why-postcss.md": 534,
-		"./learn/resources/articles.md": 535,
-		"./learn/resources/index.md": 536,
-		"./learn/resources/videos.md": 537
+		"./docs/create-postcss-plugin/index.md": 518,
+		"./docs/create-postcss-plugin/tools.md": 519,
+		"./docs/guidelines/index.md": 520,
+		"./docs/guidelines/plugins.md": 521,
+		"./docs/guidelines/runners.md": 522,
+		"./docs/index.md": 523,
+		"./docs/sourcemaps.md": 524,
+		"./docs/syntax.md": 525,
+		"./get-involved/articles.md": 526,
+		"./get-involved/contribute/postcss.md": 527,
+		"./get-involved/contribute/postcss.org.md": 528,
+		"./get-involved/videos.md": 529,
+		"./get-started/adding-plugins.md": 530,
+		"./get-started/adding-postcss.md": 531,
+		"./get-started/index.md": 532,
+		"./index.md": 533,
+		"./learn/introduction/faq.md": 534,
+		"./learn/introduction/what-is-postcss.md": 535,
+		"./learn/introduction/why-postcss.md": 536,
+		"./learn/resources/articles.md": 537,
+		"./learn/resources/index.md": 538,
+		"./learn/resources/videos.md": 539
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -45017,137 +45201,137 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 515;
+	webpackContext.id = 517;
 
-
-/***/ },
-/* 516 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
-
-/***/ },
-/* 517 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
 
 /***/ },
 /* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
+	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/index.json"
 
 /***/ },
 /* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
+	module.exports = __webpack_require__.p + "docs/create-postcss-plugin/tools/index.json"
 
 /***/ },
 /* 520 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/index.json"
 
 /***/ },
 /* 521 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/plugins/index.json"
 
 /***/ },
 /* 522 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
+	module.exports = __webpack_require__.p + "docs/guidelines/runners/index.json"
 
 /***/ },
 /* 523 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "docs/syntax/index.json"
+	module.exports = __webpack_require__.p + "docs/index.json"
 
 /***/ },
 /* 524 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
+	module.exports = __webpack_require__.p + "docs/sourcemaps/index.json"
 
 /***/ },
 /* 525 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
+	module.exports = __webpack_require__.p + "docs/syntax/index.json"
 
 /***/ },
 /* 526 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
+	module.exports = __webpack_require__.p + "get-involved/articles/index.json"
 
 /***/ },
 /* 527 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
+	module.exports = __webpack_require__.p + "get-involved/contribute/postcss/index.json"
 
 /***/ },
 /* 528 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
+	module.exports = __webpack_require__.p + "get-involved/contribute/postcss.org/index.json"
 
 /***/ },
 /* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
+	module.exports = __webpack_require__.p + "get-involved/videos/index.json"
 
 /***/ },
 /* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "get-started/index.json"
+	module.exports = __webpack_require__.p + "get-started/adding-plugins/index.json"
 
 /***/ },
 /* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "index.json"
+	module.exports = __webpack_require__.p + "get-started/adding-postcss/index.json"
 
 /***/ },
 /* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
+	module.exports = __webpack_require__.p + "get-started/index.json"
 
 /***/ },
 /* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
+	module.exports = __webpack_require__.p + "index.json"
 
 /***/ },
 /* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/faq/index.json"
 
 /***/ },
 /* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/what-is-postcss/index.json"
 
 /***/ },
 /* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "learn/resources/index.json"
+	module.exports = __webpack_require__.p + "learn/introduction/why-postcss/index.json"
 
 /***/ },
 /* 537 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/resources/articles/index.json"
+
+/***/ },
+/* 538 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "learn/resources/index.json"
+
+/***/ },
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "learn/resources/videos/index.json"
