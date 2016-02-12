@@ -31,8 +31,7 @@
 }
 
 .web_modules-Hero-index--tagline--3GcfQ {
-  color: #ffffff;
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
   font-family: sans-serif;
   font-size: 32px;
   font-weight: 300;
@@ -48,7 +47,6 @@
 .fira-sans-loaded .web_modules-Hero-index--tagline--3GcfQ {
   font-family: "Fira Sans", sans-serif;
 }
-
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
 /* Tomorrow Comment */
@@ -162,7 +160,7 @@
 
 .web_modules-InANutshell-index--title--2Iv9a {
   color: #3f526b;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: lighter;
   line-height: 32px;
 }
@@ -173,10 +171,9 @@
 }
 
 .web_modules-InANutshell-index--body--1wQ_1 {
-  color: #48463e;
-  color: rgba(72, 70, 62, 0.84);
-  font-size: 14px;
-  line-height: 1.8;
+  color: #636870;
+  font-size: 15px;
+  line-height: 23px;
   margin-top: 16px;
   margin-top: 1rem;
 }
@@ -240,12 +237,13 @@
   color: #000000;
   color: rgba(0, 0, 0, 0.84);
   overflow: auto;
-  padding: 8px;
-  padding: 0.5rem;
+  padding: 4.8px;
+  padding: 0.3rem;
 }
 
 .web_modules-InANutshell-index--code--2-2Gk {
   font: 13px/20px Monaco, Menlo, "Fira Mono", monospace;
+  overflow-x: hidden;
 }
 
 .web_modules-InANutshell-index--highlight--2wyoR {
@@ -443,9 +441,8 @@
 
 .web_modules-Showcase-index--callToAction--3B9-z {
   color: #3f526b;
-  font-size: 13px;
-  font-style: italic;
-  line-height: 20px;
+  font-size: 15px;
+  font-style: 300;
   margin: 32px auto 0;
   margin: 2rem auto 0;
   max-width: 544px;
@@ -591,6 +588,7 @@
 
 .fira-sans-loaded .web_modules-Navigation-index--root--1mxkg {
   font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
 }
 
 .web_modules-Navigation-index--items--TIrTp {
@@ -739,7 +737,7 @@
   color: #48463e;
   color: rgba(72, 70, 62, 0.46);
   font-size: 13px;
-  line-height: 20px;
+  line-height: 28px;
   margin-bottom: 4px;
   margin-bottom: 0.25rem;
 }
