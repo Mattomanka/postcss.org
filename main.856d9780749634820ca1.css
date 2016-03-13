@@ -1,0 +1,100 @@
+.web_modules-Showcase-index--root--3eSKJ {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 16px;
+  padding: 1rem;
+}
+
+.web_modules-Showcase-index--title--2Rmtr {
+  color: #dd3a0a;
+  font-size: 26px;
+  font-size: 1.625rem;
+  font-weight: normal;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.fira-sans-loaded .web_modules-Showcase-index--title--2Rmtr {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+}
+
+.web_modules-Showcase-index--items--3wG5z {
+  margin: 24px auto 0;
+  margin: 1.5rem auto 0;
+}
+
+.web_modules-Showcase-index--item--9H94p {
+  display: block;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 16px;
+  margin: 1rem;
+}
+
+.web_modules-Showcase-index--callToAction--3B9-z {
+  color: #3f526b;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  font-style: 300;
+  margin: 32px auto 0;
+  margin: 2rem auto 0;
+  max-width: 544px;
+  max-width: 34rem;
+  text-align: center;
+}
+
+.web_modules-Showcase-index--letUsKnow--17tto {
+  color: #3f526b;
+  text-decoration: underline
+}
+
+.web_modules-Showcase-index--letUsKnow--17tto:hover {
+  text-decoration: none;
+}
+
+@media (min-width: 411px) {
+  .web_modules-Showcase-index--items--3wG5z {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .web_modules-Showcase-index--item--9H94p {
+    -webkit-flex-basis: calc(50% - 2rem);
+        -ms-flex-preferred-size: calc(50% - 2rem);
+            flex-basis: calc(50% - 2rem);
+  }
+}
+
+@media (min-width: 801px) {
+  .web_modules-Showcase-index--item--9H94p {
+    -webkit-flex-basis: 150px;
+        -ms-flex-preferred-size: 150px;
+            flex-basis: 150px;
+  }
+}

@@ -1,0 +1,26 @@
+.web_modules-layouts-HomePage-index--root--q_a6u { /* placeholder */ }
+
+.web_modules-layouts-HomePage-index--showcase--3qv2n {
+  background: url(/_/web_modules/layouts/HomePage/burst.svg) center 32px no-repeat;
+  background: url(/_/web_modules/layouts/HomePage/burst.svg) center 2rem no-repeat;
+  padding-top: 64px;
+  padding-top: 4rem;
+}
+
+.web_modules-layouts-HomePage-index--byTheCommunity--1GGtI {
+  background: url(/_/web_modules/layouts/HomePage/flowers.svg) center 16px no-repeat;
+  background: url(/_/web_modules/layouts/HomePage/flowers.svg) center 1rem no-repeat;
+  padding-top: 64px;
+  padding-top: 4rem;
+}
+
+@media (min-width: 421px) {
+  .web_modules-layouts-HomePage-index--wayFinder--1eCSP {
+    padding-top: 2rem;
+  }
+
+  .web_modules-layouts-HomePage-index--showcase--3qv2n {
+    background-position: center 3rem;
+    padding-top: 5rem;
+  }
+}

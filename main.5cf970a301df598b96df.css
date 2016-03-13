@@ -1,0 +1,174 @@
+.web_modules-InANutshell-index--root--280g4 { /* placeholder */ }
+
+.web_modules-InANutshell-index--header--37Imo {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.web_modules-InANutshell-index--logo--2orVE {
+  margin-right: 16px;
+  margin-right: 1rem;
+}
+
+.web_modules-InANutshell-index--title--2Iv9a {
+  color: #3f526b;
+  font-size: 25px;
+  font-size: 1.5625rem;
+  font-weight: lighter;
+  line-height: 1.28;
+}
+
+.fira-sans-loaded .web_modules-InANutshell-index--title--2Iv9a {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+}
+
+.web_modules-InANutshell-index--body--1wQ_1 {
+  color: #636870;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+.web_modules-InANutshell-index--tool--hdWFC {
+  color: inherit;
+  text-decoration: underline
+}
+
+.web_modules-InANutshell-index--tool--hdWFC:hover {
+ text-decoration: none; }
+
+.web_modules-InANutshell-index--item--3qU8b {
+  background: #faf8f5;
+  padding: 32px 16px 16px;
+  padding: 2rem 1rem 1rem;
+}
+
+.web_modules-InANutshell-index--itemAlt--3OgWf {
+  background: #f4f2ed;
+}
+
+.web_modules-InANutshell-index--example--3uAlE {
+  padding: 16px 16px 0;
+  padding: 1rem 1rem 0;
+}
+
+.web_modules-InANutshell-index--figure--rq1OT {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  margin-right: 32px;
+  margin-right: 2rem;
+  overflow: hidden;
+}
+
+.web_modules-InANutshell-index--figureOutput--1UTz7 {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 32px;
+  margin-left: 2rem;
+  margin-right: 0;
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
+}
+
+.web_modules-InANutshell-index--pre--2a_dB {
+  background: white;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.84);
+  overflow: auto;
+  padding: 4.8px;
+  padding: 0.3rem;
+}
+
+.web_modules-InANutshell-index--code--2-2Gk {
+  font-family: Monaco, Menlo, "Fira Mono", monospace;
+  font-size: 10.8px;
+  font-size: 0.675rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.web_modules-InANutshell-index--highlight--2wyoR {
+  background: #fff478;
+  color: white;
+  display: inline-block;
+  margin: 2px 0;
+  margin: 0.125rem 0;
+  padding: 2px;
+  padding: 0.125rem;
+}
+
+.web_modules-InANutshell-index--caption--igEVs {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  border-top-right-radius: 3px;
+  background-color: #f4f2ed;
+  color: rgba(72, 70, 62, 0.54);
+  font-size: 11px;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  padding: 2px 4px;
+  padding: 0.125rem 0.25rem;
+}
+
+.web_modules-InANutshell-index--captionOutput--3sNnN {
+  text-align: right;
+}
+
+@media (min-width: 641px) {
+  .web_modules-InANutshell-index--itemInner--3WdMs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 0 auto;
+    max-width: 45rem;
+  }
+
+  .web_modules-InANutshell-index--itemInnerAlt--3_CXO {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+
+  .web_modules-InANutshell-index--info--1dHCJ {
+    margin-right: 1.5rem;
+    padding-top: 2rem;
+  }
+
+  .web_modules-InANutshell-index--infoAlt--2Gxhq {
+    margin-left: 1.5rem;
+    margin-right: 0;
+  }
+
+  .web_modules-InANutshell-index--example--3uAlE {
+    min-width: 22rem;
+  }
+}
