@@ -72,8 +72,8 @@
   -webkit-flex-direction: column-reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  margin-right: 32px;
-  margin-right: 2rem;
+  margin-right: 17.6px;
+  margin-right: 1.1rem;
   overflow: hidden;
 }
 
@@ -83,8 +83,8 @@
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: 32px;
-  margin-left: 2rem;
+  margin-left: 17.6px;
+  margin-left: 1.1rem;
   margin-right: 0;
   -webkit-transform: translateY(-1rem);
           transform: translateY(-1rem);
