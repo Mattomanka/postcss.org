@@ -1,0 +1,52 @@
+.web_modules-layouts-PageError-index--item--TsPEb {
+  background: #faf8f5;
+  padding: 32px 16px;
+  padding: 2rem 1rem;
+}
+
+.web_modules-layouts-PageError-index--itemInner--3tg1A {
+  margin: 0 auto;
+  max-width: 720px;
+  max-width: 45rem;
+}
+
+.web_modules-layouts-PageError-index--body--1MBEu {
+  color: #636870;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+.web_modules-layouts-PageError-index--error--3lQ57 {
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+.web_modules-layouts-PageError-index--title--3LRMe {
+  color: #3f526b;
+  font-size: 25px;
+  font-size: 1.5625rem;
+  font-weight: lighter;
+  line-height: 1.28;
+}
+
+.web_modules-layouts-PageError-index--link--D1SDW {
+  color: inherit;
+  text-decoration: underline
+}
+
+.web_modules-layouts-PageError-index--link--D1SDW:hover {
+  text-decoration: none;
+}
+
+.web_modules-layouts-PageError-index--redirectMessage--1uIMY {
+  color: #3f526b;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  font-style: 300;
+  margin-top: 32px;
+  margin-top: 2rem;
+  text-align: center;
+}
